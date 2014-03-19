@@ -32,7 +32,9 @@
   - Dristhi prod server
   - Bamboo prod server
   - QA server (EC2 and Linode)
+  - Deploying new version of app on Play Store
 * CI information (Jenkins)
 * Various documents and tools we use to organise our work
   - Trello Boards
   - Documents on google drive (bug tracking, dristhi core design, etc)
+  - Cloudant account
