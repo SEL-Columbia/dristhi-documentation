@@ -1,5 +1,28 @@
 ## Dristhi Sync ##
 
-![Dristhi Sync Sequence Diagram][sync_diagram]
+Below is a Sequence Diagram explaining Dristhi Sync for Login scenario.
 
-[sync_diagram]: sync.png "Dristhi Sync Sequence Diagram"
+![][sync_login_diagram]
+
+The above mentioned components can be found in code as below:
+
+* Login block refers to LoginActitity and UserService class
+* Scheduler is implemented as DrishtiSyncScheduler class
+* [Android Alarm Manager][] is an API that allows access to system alarm service.
+* Receiver is implemented as SyncBroadcastReceiver class
+* Dristhi Service refers to the Dristhi-web service, currently hosted at <https://smartregistries.org>
+
+More information about the Messages in the sequence diagram below:
+
+1. When the user logs in successfully, LoginActivity calls UserService to do post login tasks
+2. UserService calls DrishtiSyncScheduler to start a sync schedule
+3. DrishtiSyncScheduler uses AlarmManager to create a alarm which gives the app a callback every 'X' minutes. As of now X = 2 minutes. When creating the alarm, SyncBroadcastReceiver is set as the callback receiver/handler
+4. Hence forth, till the alarm is stopped, AlarmManager will invoke the SyncBroadcastReceiver every 'X' minutes
+5. When SyncBroadcastReceiver is invoked by AlarmManager, using UpdateActionsTask class, POSTs any new form submission that to Dristhi Service
+6. SyncBroadcastReceiver then tries to download any new data from Dristhi Service. New data is identified by using a token. First time sync runs with token as 0. Subsequently, sync stores the version of the last form submission and action that it downloads as token and this token is then used in the next sync to get new data
+    1. It requests for new data since last sync by using */form-submissions* and */actions* API. New data includes any of Form Submissions, Reminders, Reports, etc
+    2. Dristhi service responds to this request by sending back any new data in response
+7. SyncBroadcastReceiver stores any newly downloaded data and handles them appropriately, i.e. form submissions are used to create or update entities (EC, ANC, PNC, Child), reminders updated on smart registers and repots are updated on the report screens
+
+[sync_login_diagram]: diagrams/sync_login.png "Dristhi Sync Sequence Diagram"
+[Android Alarm Manager]: https://developer.android.com/reference/android/app/AlarmManager.html
