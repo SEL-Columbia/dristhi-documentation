@@ -1,7 +1,8 @@
 ---
-layout: post
-title: Dristhi Sync
+layout: page
 ---
+
+# Dristhi Sync
 
 ## Login Scenario
 

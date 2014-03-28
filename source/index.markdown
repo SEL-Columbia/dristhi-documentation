@@ -1,7 +1,8 @@
 ---
-layout: post
-title: Table Of Contents
+layout: page
 ---
+
+# Table Of Contents
 
 * [Dristhi Developer Machine Setup][1]
 * Dristhi Android Application

@@ -1,7 +1,8 @@
 ---
-layout: post
-title: Dristhi Developer Machine Setup
+layout: page
 ---
+
+# Dristhi Developer Machine Setup
 
 This document is work in progress, please update this based on your setup experience
 

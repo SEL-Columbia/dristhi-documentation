@@ -1,7 +1,8 @@
 ---
-layout: post
-title: "Dristhi Android Application Technical Stack"
+layout: page
 ---
+
+# Dristhi Android Application Technical Stack
 
 ## Android Specifications
 * Dristhi is a Hybrid Android application
