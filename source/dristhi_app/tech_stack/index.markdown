@@ -1,4 +1,7 @@
-## Dristhi App Technical Stack ##
+---
+layout: page
+title: "Dristhi Android Application Technical Stack"
+---
 
 ### Android Specifications
 * Dristhi is a Hybrid Android application
@@ -7,43 +10,43 @@
 * Android package name for the app is 'org.ei.drishti'
 
 ### Technical Stack
-* [Apache Maven][] for Depencency Management and Build
-* [Android Maven Plugin v3.6.0][]
-* [SQLCipher v2.2.0][]
-* [ACRA v4.5.0][]
-* [Rhino (Javascript Engine) v7R4][]
-* [Robolectric v0.9.8][]
-* [jUnit v4.10][]
-* [Mockito v1.9.0][]
-* [Robotium v3.1][]
-* [AngularJS v1.2.1][]
-* [Flat UI v2.3.1][]
-* [Angular UI v0.3.0][]
-* [jQuery v1.9.0][]
-* [jQuery UI - v1.8.23][]
-* [Handlebars v1.0.12][]
-* [Enketo-Dristhi v2.3.0][]
-* [Ziggy v0.1.0][]
-* [Karam v0.10.1][]
-* [Jasmine v1.3][]
+* [Apache Maven][1] for Depencency Management and Build
+* [Android Maven Plugin][2] v3.6.0
+* [SQLCipher][3] v2.2.0
+* [ACRA][4] v4.5.0
+* [Rhino (Javascript Engine)][5] v7R4
+* [Robolectric][6] v0.9.8
+* [jUnit][7] v4.10
+* [Mockito][8] v1.9.0
+* [Robotium][9] v3.1
+* [AngularJS][10] v1.2.1
+* [Flat UI][11] v2.3.1
+* [Angular UI][12] v0.3.0
+* [jQuery][13] v1.9.0
+* [jQuery UI][14] v1.8.23
+* [Handlebars][15] v1.0.12
+* [Enketo-Dristhi][16] v2.3.0
+* [Ziggy][17] v0.1.0
+* [Karma][18] v0.10.1
+* [Jasmine][19] v1.3
 
 
-[Apache Maven]: https://maven.apache.org/
-[Android Maven Plugin v3.6.0]: https://github.com/dcendents/android-maven-plugin/
-[SQLCipher v2.2.0]: http://sqlcipher.net/
-[ACRA v4.5.0]: http://acra.ch/
-[Rhino (Javascript Engine) v7R4]: https://developer.mozilla.org/en-US/docs/Rhino/
-[Robolectric v0.9.8]: http://robolectric.org/
-[jUnit v4.10]: http://junit.org/
-[Mockito v1.9.0]: https://code.google.com/p/mockito/
-[Robotium v3.1]: https://code.google.com/p/robotium/
-[AngularJS v1.2.1]: http://www.angularjs.org/
-[Flat UI v2.3.1]: https://github.com/designmodo/Flat-UI/
-[Angular UI v0.3.0]: http://angular-ui.github.io/
-[jQuery v1.9.0]: http://jquery.com/
-[jQuery UI - v1.8.23]: http://jqueryui.com/
-[Handlebars v1.0.12]: http://handlebarsjs.com/
-[Enketo-Dristhi v2.3.0]: https://github.com/MartijnR/enketo-dristhi
-[Ziggy v0.1.0]: https://github.com/SEL-Columbia/ziggy
-[Karam v0.10.1]: http://karma-runner.github.io/0.10/index.html
-[Jasmine v1.3]: http://jasmine.github.io/1.3/introduction.html
+[1]: https://maven.apache.org/
+[2]: https://github.com/dcendents/android-maven-plugin/
+[3]: http://sqlcipher.net/
+[4]: http://acra.ch/
+[5]: https://developer.mozilla.org/en-US/docs/Rhino/
+[6]: http://robolectric.org/
+[7]: http://junit.org/
+[8]: https://code.google.com/p/mockito/
+[9]: https://code.google.com/p/robotium/
+[10]: http://www.angularjs.org/
+[11]: https://github.com/designmodo/Flat-UI/
+[12]: http://angular-ui.github.io/
+[13]: http://jquery.com/
+[14]: http://jqueryui.com/
+[15]: http://handlebarsjs.com/
+[16]: https://github.com/MartijnR/enketo-dristhi
+[17]: https://github.com/SEL-Columbia/ziggy
+[18]: http://karma-runner.github.io/0.10/index.html
+[19]: http://jasmine.github.io/1.3/introduction.html
