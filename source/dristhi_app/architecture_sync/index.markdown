@@ -61,5 +61,5 @@ More information about the sequence diagram messages below:
 
 [Android Alarm Manager]: https://developer.android.com/reference/android/app/AlarmManager.html
 [ConnectivityManager]: https://developer.android.com/reference/android/net/ConnectivityManager.html
-[sync_login_diagram]: /images/custom/dristhi_app/sync_login.png "Dristhi Sync Sequence Diagram for Login Scenario"
-[sync_connectivity_status_changed_diagram]: /images/custom/dristhi_app/sync_connectivity_status_changed.png "Dristhi Sync Sequence Diagram for Internet Connectivity Changed Scenario"
+[sync_login_diagram]: ../../images/custom/dristhi_app/sync_login.png "Dristhi Sync Sequence Diagram for Login Scenario"
+[sync_connectivity_status_changed_diagram]: ../../images/custom/dristhi_app/sync_connectivity_status_changed.png "Dristhi Sync Sequence Diagram for Internet Connectivity Changed Scenario"

@@ -7,7 +7,7 @@ layout: page
 ## Android Specifications
 * Dristhi is a Hybrid Android application
 * Dristhi can run on Android devices running Jelly Bean 4.1.2 (API level 16) or newer versions of Android
-* Dristhi can run on any wide screen devices (7 inch or above) but the display has been optimised only for Samsung Galazy Tab 3 (T211). There are known UI issues on Google Nexus 7
+* Dristhi can run on any wide screen devices (7 inch or above) but the display has been optimised only for Samsung Galaxy Tab 3 (T211). There are known UI issues on Google Nexus 7
 * Android package name for the app is 'org.ei.drishti'
 
 ## Technical Stack
