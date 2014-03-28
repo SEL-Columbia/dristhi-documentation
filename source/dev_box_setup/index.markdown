@@ -7,14 +7,14 @@ This document is work in progress, please update this based on your setup experi
 
 **Note:** The commands and paths specified below are for Mac OS X 10.9.2 and assumes that [Homebrew][1] has been installed.
 
-## Tools and Frameworks Setup ##
+## Tools and Frameworks Setup
 
 1. Apache Maven
     1. Install Apache Maven 3.0 (brew install homebrew/versions/maven30). We have had issues with newer versions of maven, so it is advisable to install 3.0
     2. Create/Update settings.xml file[^1] at &lt;maven directory&gt; (&lt;user_home_directory&gt;/.m2 on Mac OS X)
     3. Increase maven permgen size by creating an environment variable called MAVEN_OPTS with value "-XX:MaxPermSize=256m -Xmx512m". On Mac OS X this can be done by adding ```export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx512m"``` to bash_rc or bash_profile
 2. Android SDK
-    1. Download and install [Android SDK][2]. Alternativelt you can install it using homebrew command `brew install android-sdk`
+    1. Download and install [Android SDK][2]. Alternatively you can install it using homebrew command `brew install android-sdk`
     2. Launch Android SDK Manager by using *android* command. Install the below mentioned components
         1. Tools -> Android SDK Tools
         2. Tools -> Android SDK Platform Tools
@@ -41,11 +41,11 @@ This document is work in progress, please update this based on your setup experi
 7. Install [CouchDB][11] using `brew install couchdb --version1.2.0`
 
 
-## Dristhi Server ##
+## Dristhi Server
 1. Clone Dristhi Server git repository from https://github.com/SEL-Columbia/dristhi using `git clone https://github.com/SEL-Columbia/dristhi`. If *git* is not installed you can install it using `brew install git`
 2. Run `mvn clean install` from the root directory of Dristhi Server
 
-## Dristhi App Build ##
+## Dristhi App Build
 
 **Note:** Dristhi App build depends on Server build, so please complete that before building app
 

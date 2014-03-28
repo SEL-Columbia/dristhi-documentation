@@ -1,6 +1,9 @@
-## Dristhi Sync ##
+---
+layout: post
+title: Dristhi Sync
+---
 
-### Login Scenario ###
+## Login Scenario
 
 ![][sync_login_diagram]
 
@@ -25,7 +28,7 @@ More information about the sequence diagram messages below:
 7. SyncBroadcastReceiver stores any newly downloaded data and handles them appropriately, i.e. form submissions are used to create or update entities (EC, ANC, PNC, Child), reminders updated on smart registers and repots are updated on the report screens
 
 
-### Internet Connectivity Status Changed Scenario ###
+## Internet Connectivity Status Changed Scenario
 
 ![][sync_connectivity_status_changed_diagram]
 
@@ -57,5 +60,5 @@ More information about the sequence diagram messages below:
 
 [Android Alarm Manager]: https://developer.android.com/reference/android/app/AlarmManager.html
 [ConnectivityManager]: https://developer.android.com/reference/android/net/ConnectivityManager.html
-[sync_login_diagram]: diagrams/sync_login.png "Dristhi Sync Sequence Diagram for Login Scenario"
-[sync_connectivity_status_changed_diagram]: diagrams/sync_connectivity_status_changed.png "Dristhi Sync Sequence Diagram for Internet Connectivity Changed Scenario"
+[sync_login_diagram]: /images/custom/dristhi_app/sync_login.png "Dristhi Sync Sequence Diagram for Login Scenario"
+[sync_connectivity_status_changed_diagram]: /images/custom/dristhi_app/sync_connectivity_status_changed.png "Dristhi Sync Sequence Diagram for Internet Connectivity Changed Scenario"
