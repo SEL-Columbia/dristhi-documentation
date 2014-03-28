@@ -1,0 +1,152 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Documentation for Project Dristhi  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Dristhi Sync Login Scenario The above mentioned components can be found in code as below: Login block refers to LoginActitity and UserService class &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Dristhi Sync</h1>
+
+<h2>Login Scenario</h2>
+
+<p><img src="/images/custom/dristhi_app/sync_login.png" title="Dristhi Sync Sequence Diagram for Login Scenario" alt="" /></p>
+
+<p>The above mentioned components can be found in code as below:</p>
+
+<ul>
+<li>Login block refers to LoginActitity and UserService class</li>
+<li>Scheduler is implemented as DrishtiSyncScheduler class</li>
+<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html">Android Alarm Manager</a> is an Android API that allows access to system alarm service.</li>
+<li>Receiver is implemented as SyncBroadcastReceiver class</li>
+<li>Dristhi Service refers to the Dristhi-web service, currently hosted at <a href="https://smartregistries.org">https://smartregistries.org</a></li>
+</ul>
+
+
+<p>More information about the sequence diagram messages below:</p>
+
+<ol>
+<li>When the user logs in successfully, LoginActivity calls UserService to do post login tasks</li>
+<li>UserService calls DrishtiSyncScheduler to start a sync schedule</li>
+<li>DrishtiSyncScheduler uses AlarmManager to create a alarm which gives the app a callback every &lsquo;X&rsquo; minutes. As of now X = 2 minutes. When creating the alarm, SyncBroadcastReceiver is set as the callback receiver/handler</li>
+<li>Hence forth, till the alarm is stopped, AlarmManager will invoke the SyncBroadcastReceiver every &lsquo;X&rsquo; minutes</li>
+<li>When SyncBroadcastReceiver is invoked by AlarmManager, it POSTs any new form submission that to Dristhi Service using UpdateActionsTask class. UpdateActionsTask uses Android AsyncTask API to sync from Dristhi Service in the background</li>
+<li>SyncBroadcastReceiver then tries to download any new data from Dristhi Service. New data is identified by using a token. First time sync runs with token as 0. Subsequently, sync stores the version of the last form submission and action that it downloads as token and this token is then used in the next sync to get new data
+
+<ol>
+<li>It requests for new data since last sync by using <em>/form-submissions</em> and <em>/actions</em> API. New data includes any of Form Submissions, Reminders, Reports, etc</li>
+<li>Dristhi service responds to this request by sending back any new data in response</li>
+</ol>
+</li>
+<li>SyncBroadcastReceiver stores any newly downloaded data and handles them appropriately, i.e. form submissions are used to create or update entities (EC, ANC, PNC, Child), reminders updated on smart registers and repots are updated on the report screens</li>
+</ol>
+
+
+<h2>Internet Connectivity Status Changed Scenario</h2>
+
+<p><img src="/images/custom/dristhi_app/sync_connectivity_status_changed.png" title="Dristhi Sync Sequence Diagram for Internet Connectivity Changed Scenario" alt="" /></p>
+
+<p>The above mentioned components can be found in code as below:</p>
+
+<ul>
+<li>Change Connectivity Receiver refers to ConnectivityChangeReceiver class. Android has <a href="https://developer.android.com/reference/android/net/ConnectivityManager.html">ConnectivityManager</a> which broadcasts connectivity status by using the android.net.conn.CONNECTIVITY_CHANGE intent. The receiver uses this intent to track the connectivity to internet</li>
+<li>Scheduler is implemented as DrishtiSyncScheduler class</li>
+<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html">Android Alarm Manager</a> is an Android API that allows access to system alarm service.</li>
+<li>Receiver is implemented as SyncBroadcastReceiver class</li>
+<li>Dristhi Service refers to the Dristhi-web service, currently hosted at <a href="https://smartregistries.org">https://smartregistries.org</a></li>
+</ul>
+
+
+<p>More information about the sequence diagram messages below:</p>
+
+<ol>
+<li>ConnectivityChangeReceiver is invoked by ConnectivityManager when there is a change in Internet Connectivity Status</li>
+<li>ConnectivityChangeReceiver checks the status
+
+<ol>
+<li>When status is <em>Connection restored</em>
+
+<ol>
+<li>When status is Connected, receiver calls Start Sync on DrishtiSyncScheduler</li>
+<li>DrishtiSyncScheduler uses AlarmManager to create a alarm which gives the app a callback every &lsquo;X&rsquo; minutes. As of now X = 2 minutes. When creating the alarm, SyncBroadcastReceiver is set as the callback receiver/handler</li>
+<li>Hence forth, till the alarm is stopped, AlarmManager will invoke the SyncBroadcastReceiver every &lsquo;X&rsquo; minutes</li>
+<li>When SyncBroadcastReceiver is invoked by AlarmManager, it POSTs any new form submission that to Dristhi Service using UpdateActionsTask class. UpdateActionsTask uses Android AsyncTask API to sync from Dristhi Service in the background</li>
+<li>SyncBroadcastReceiver then tries to download any new data from Dristhi Service. New data is identified by using a token. First time sync runs with token as 0. Subsequently, sync stores the version of the last form submission and action that it downloads as token and this token is then used in the next sync to get new data
+
+<ol>
+<li>It requests for new data since last sync by using <em>/form-submissions</em> and <em>/actions</em> API. New data includes any of Form Submissions, Reminders, Reports, etc</li>
+<li>Dristhi service responds to this request by sending back any new data in response</li>
+</ol>
+</li>
+<li>SyncBroadcastReceiver stores any newly downloaded data and handles them appropriately, i.e. form submissions are used to create or update entities (EC, ANC, PNC, Child), reminders updated on smart registers and repots are updated on the report screens</li>
+</ol>
+</li>
+<li>When status is <em>Connection lost</em>
+
+<ol>
+<li>ConnectivityChangeReceiver calls DrishtiSyncScheduler to stop sync schedule</li>
+<li>DrishtiSyncScheduler uses AlarmManager to stop the alarm that was created to sync. Receiver is not called anymore</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2014
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/archives/</loc>
+        <lastmod>2014-03-28T12:17:38+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/blog/archives/</loc>
+        <lastmod>2014-03-28T12:17:38+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/blog/</loc>
+        <lastmod>2014-03-28T12:17:38+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/dev_box_setup/</loc>
+        <lastmod>2014-03-28T16:32:49+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/architecture_sync/
+        </loc>
+        <lastmod>2014-03-28T16:29:01+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/tech_stack/</loc>
+        <lastmod>2014-03-28T16:29:09+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/</loc>
+        <lastmod>2014-03-28T16:26:50+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/robots.txt</loc>
+        <lastmod>2014-03-28T12:17:38+05:30</lastmod>
+    </url>
+</urlset>
