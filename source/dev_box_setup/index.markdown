@@ -1,10 +1,13 @@
-## Dristhi Developer Machine Setup ##
+---
+layout: post
+title: Dristhi Developer Machine Setup
+---
 
 This document is work in progress, please update this based on your setup experience
 
 **Note:** The commands and paths specified below are for Mac OS X 10.9.2 and assumes that [Homebrew][1] has been installed.
 
-### Tools and Frameworks Setup ###
+## Tools and Frameworks Setup ##
 
 1. Apache Maven
     1. Install Apache Maven 3.0 (brew install homebrew/versions/maven30). We have had issues with newer versions of maven, so it is advisable to install 3.0
@@ -38,11 +41,11 @@ This document is work in progress, please update this based on your setup experi
 7. Install [CouchDB][11] using `brew install couchdb --version1.2.0`
 
 
-### Dristhi Server ###
+## Dristhi Server ##
 1. Clone Dristhi Server git repository from https://github.com/SEL-Columbia/dristhi using `git clone https://github.com/SEL-Columbia/dristhi`. If *git* is not installed you can install it using `brew install git`
 2. Run `mvn clean install` from the root directory of Dristhi Server
 
-### Dristhi App Build ###
+## Dristhi App Build ##
 
 **Note:** Dristhi App build depends on Server build, so please complete that before building app
 
@@ -73,7 +76,8 @@ This document is work in progress, please update this based on your setup experi
 [14]: https://duckduckgo.com/?q=virtualbox
 [15]: http://forum.xda-developers.com/showthread.php?t=2528952
 
-[^1]: ```xml
+[^1]:
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -93,7 +97,8 @@ This document is work in progress, please update this based on your setup experi
 </settings>
 ```
 
-[^2]: ```xml
+[^2]:
+```xml
 <policyEntry queue=">" producerFlowControl="true" memoryLimit="500mb">
-    </policyEntry>
+</policyEntry>
 ```
