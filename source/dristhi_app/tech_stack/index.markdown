@@ -1,5 +1,6 @@
 ---
 layout: page
+title: "Dristhi App Tech Stack"
 ---
 
 # Dristhi Android Application Technical Stack

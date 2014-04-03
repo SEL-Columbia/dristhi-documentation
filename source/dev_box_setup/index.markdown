@@ -1,5 +1,6 @@
 ---
 layout: page
+title: "Dristhi Developer Machine Setup"
 ---
 
 # Dristhi Developer Machine Setup

@@ -1,8 +1,9 @@
 ---
 layout: page
+title: "Sync Architecture"
 ---
 
-# Dristhi Sync
+# Sync Architecture
 
 ## Login Scenario
 
