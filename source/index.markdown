@@ -11,6 +11,6 @@ layout: page
         * [Sync][3]
 
 
-[1]: dev_box_setup
-[2]: dristhi_app/tech_stack
-[3]: dristhi_app/architecture_sync
+[1]: {{root_url}}/dev_box_setup
+[2]: {{root_url}}/dristhi_app/tech_stack
+[3]: {{root_url}}/dristhi_app/architecture_sync
