@@ -8,6 +8,7 @@ title: "Sync Architecture"
 ## Login Scenario
 
 ![][sync_login_diagram]
+[Sequence Diagram for Login Scenario][3]
 
 The above mentioned components can be found in code as below:
 
@@ -33,12 +34,13 @@ More information about the sequence diagram messages below:
 ## Internet Connectivity Status Changed Scenario
 
 ![][sync_connectivity_status_changed_diagram]
+[Sequence Diagram for Internet Connectivity Changed Scenario][4]
 
 The above mentioned components can be found in code as below:
 
-* Change Connectivity Receiver refers to ConnectivityChangeReceiver class. Android has [ConnectivityManager][] which broadcasts connectivity status by using the android.net.conn.CONNECTIVITY_CHANGE intent. The receiver uses this intent to track the connectivity to internet
+* Change Connectivity Receiver refers to ConnectivityChangeReceiver class. Android has [ConnectivityManager][2] which broadcasts connectivity status by using the android.net.conn.CONNECTIVITY_CHANGE intent. The receiver uses this intent to track the connectivity to internet
 * Scheduler is implemented as DrishtiSyncScheduler class
-* [Android Alarm Manager][] is an Android API that allows access to system alarm service.
+* [Android Alarm Manager][1] is an Android API that allows access to system alarm service.
 * Receiver is implemented as SyncBroadcastReceiver class
 * Dristhi Service refers to the Dristhi-web service, currently hosted at <https://smartregistries.org>
 
@@ -60,7 +62,9 @@ More information about the sequence diagram messages below:
         2. DrishtiSyncScheduler uses AlarmManager to stop the alarm that was created to sync. Receiver is not called anymore
 
 
-[Android Alarm Manager]: https://developer.android.com/reference/android/app/AlarmManager.html
-[ConnectivityManager]: https://developer.android.com/reference/android/net/ConnectivityManager.html
+[1]: https://developer.android.com/reference/android/app/AlarmManager.html
+[2]: https://developer.android.com/reference/android/net/ConnectivityManager.html
+[3]: {{root_url}}/images/custom/dristhi_app/sync_login.png
+[4]: {{root_url}}/images/custom/dristhi_app/sync_connectivity_status_changed.png
 [sync_login_diagram]: {{root_url}}/images/custom/dristhi_app/sync_login.png "Dristhi Sync Sequence Diagram for Login Scenario"
 [sync_connectivity_status_changed_diagram]: {{root_url}}/images/custom/dristhi_app/sync_connectivity_status_changed.png "Dristhi Sync Sequence Diagram for Internet Connectivity Changed Scenario"
