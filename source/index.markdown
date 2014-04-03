@@ -2,7 +2,7 @@
 layout: page
 ---
 
-# Table Of Contents
+# Table of Contents
 
 * [Dristhi Developer Machine Setup][1]
 * Dristhi Android Application
