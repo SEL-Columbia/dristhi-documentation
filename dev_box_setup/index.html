@@ -3,7 +3,7 @@
 <html lang="en-GB">
 <head>
 	<meta charset="utf-8">
-	<title>Documentation for Project Dristhi  | Project Dristhi</title>
+	<title>Dristhi Developer Machine Setup  | Project Dristhi</title>
 
 	<meta name="author" content="Project Dristhi">
 
@@ -94,6 +94,7 @@ For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
 <li>Install <a href="http://handlebarsjs.com/">Handlebars</a> using  <code>npm install -g handlebars@1.0.12</code></li>
 <li>Install <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> using <code>npm install -g karma@0.10.1</code></li>
 <li>Install <a href="http://gruntjs.com/">Grunt Command Line Tool</a> using <code>npm install grunt-cli@0.1.9</code></li>
+<li>Install <a href="https://github.com/gr2m/CORS-Proxy">CORS Proxy</a> using <code>npm install corsproxy@0.2.14</code></li>
 </ol>
 </li>
 <li>Install <a href="http://activemq.apache.org/">ActiveMQ</a> using an appropriate package manager with package name <code>activemq</code> and version <code>5.7.0</code>
@@ -112,14 +113,24 @@ For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
 </ol>
 </li>
 <li>Install <a href="https://couchdb.apache.org/">CouchDB</a> using an appropriate package manager with package name <code>couchdb</code> and version <code>1.2.0</code></li>
+<li>Install <a href="http://git-scm.com/">Git</a> using an appropriate package manager with package name <code>git</code></li>
 </ol>
 
 
-<h2>Dristhi Server</h2>
+<h2>Dristhi Server Build</h2>
 
 <ol>
-<li>Clone Dristhi Server git repository from <a href="https://github.com/SEL-Columbia/dristhi">https://github.com/SEL-Columbia/dristhi</a> using <code>git clone https://github.com/SEL-Columbia/dristhi</code>. If <em>git</em> is not installed you can install it using an appropriate package manager with package name <code>git</code></li>
+<li>Clone Dristhi Server git repository from <a href="https://github.com/SEL-Columbia/dristhi">https://github.com/SEL-Columbia/dristhi</a> using <code>git clone https://github.com/SEL-Columbia/dristhi</code></li>
 <li>Run <code>mvn clean install</code> from the root directory of Dristhi Server</li>
+<li>To run server locally run
+
+<ol>
+<li>Run <code>mvn clean install</code> from the root directory of Dristhi Server</li>
+<li>Navigate to &lt;server_root&gt;/drishti-reporting directory and run <code>mvn jetty:run</code></li>
+<li>Navigate to &lt;server_root&gt;/drishti-web directory and run <code>mvn jetty:run</code></li>
+<li>This can be simplified by creating an alias, <code>alias web='(cd &lt;server_root&gt;; cd drishti-reporting &amp;&amp; mvn jetty:run &amp;; cd ../drishti-web &amp;&amp; mvn jetty:run)'</code></li>
+</ol>
+</li>
 </ol>
 
 
@@ -128,7 +139,7 @@ For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
 <p><strong>Note:</strong> Dristhi App build depends on Server build, so please complete that before building app</p>
 
 <ol>
-<li>Clone Dristhi app git repository from <a href="https://github.com/SEL-Columbia/drishti-app">https://github.com/SEL-Columbia/drishti-app</a> using <code>git clone https://github.com/SEL-Columbia/drishti-app</code>. If <em>git</em> is not installed you can install it using an appropriate package manager with package name <code>git</code></li>
+<li>Clone Dristhi app git repository from <a href="https://github.com/SEL-Columbia/drishti-app">https://github.com/SEL-Columbia/drishti-app</a> using <code>git clone https://github.com/SEL-Columbia/drishti-app</code></li>
 <li>Android Emulator
 
 <ol>
@@ -145,6 +156,25 @@ For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
 </ol>
 </li>
 <li>Run <code>mvn clean install</code> from the root directory of Dristhi app</li>
+</ol>
+
+
+<h2>Dristhi Dashboard Build</h2>
+
+<ol>
+<li>Clone Dristhi Dashboard git repository from <a href="https://github.com/SEL-Columbia/drishti-site">https://github.com/SEL-Columbia/drishti-site</a> using <code>git clone https://github.com/SEL-Columbia/drishti-site</code></li>
+<li>Run <code>npm install</code></li>
+<li>Run <code>bower install</code></li>
+<li>Run <code>grunt</code>. This will build the code (jshint verification, unit tests, concatenation, minification, etc) and generate runnable web app in <code>dist</code> directory</li>
+<li>To run dashboard locally
+
+<ol>
+<li>Run Dristhi Server locally by following the steps mentioned above</li>
+<li>In &lt;dashboard_root&gt;/app/scripts/app.js comment the section of constants that have prod URLs (<a href="https://smartregistries.org">https://smartregistries.org</a>) and uncomment the section which has local URLs (<a href="http://localhost:9292/localhost:9980">http://localhost:9292/localhost:9980</a>)</li>
+<li>Run <code>corsproxy</code></li>
+<li>Run <code>grunt server</code> from &lt;dashboard_root&gt;</li>
+</ol>
+</li>
 </ol>
 
 
