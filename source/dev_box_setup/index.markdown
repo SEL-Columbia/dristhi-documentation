@@ -34,6 +34,7 @@ For Red Hat/Fedora/CentOS use `sudo yum install [pkg]`
     4. Install [Handlebars][6] using  `npm install -g handlebars@1.0.12`
     5. Install [Karma][7] using `npm install -g karma@0.10.1`
     6. Install [Grunt Command Line Tool][12] using `npm install grunt-cli@0.1.9`
+    7. Install [CORS Proxy][17] using `npm install corsproxy@0.2.14`
 5. Install [ActiveMQ][9] using an appropriate package manager with package name `activemq` and version `5.7.0`
     1. ActiveMQ needs to be started for Dristhi server to build, so follow the instructions at the end of the installation to start it the way you prefer
     2. ActiveMQ by default has only 1MB memory limit. This is usually not sufficient. Increase ActiveMQ memory by updating ActiveMQ configuration[^2]. ActiveMQ configuration can be found at &lt;activemq_install_location&gt;/conf/activemq.xml
@@ -42,17 +43,24 @@ For Red Hat/Fedora/CentOS use `sudo yum install [pkg]`
     2. Create a user called 'postgres' by using `createuser -P postgres`. Set the password as 'password'. This is required for building server
     3. Login to database using `psql -U postgres`. Create a database called 'drishti' using `CREATE DATABASE drishti`
 7. Install [CouchDB][11] using an appropriate package manager with package name `couchdb` and version `1.2.0`
+8. Install [Git][16] using an appropriate package manager with package name `git`
 
 
-## Dristhi Server
-1. Clone Dristhi Server git repository from https://github.com/SEL-Columbia/dristhi using `git clone https://github.com/SEL-Columbia/dristhi`. If *git* is not installed you can install it using an appropriate package manager with package name `git`
+## Dristhi Server Build
+1. Clone Dristhi Server git repository from https://github.com/SEL-Columbia/dristhi using `git clone https://github.com/SEL-Columbia/dristhi`
 2. Run `mvn clean install` from the root directory of Dristhi Server
+3. To run server locally run
+    1. Run `mvn clean install` from the root directory of Dristhi Server
+    2. Navigate to &lt;server_root&gt;/drishti-reporting directory and run `mvn jetty:run `
+    3. Navigate to &lt;server_root&gt;/drishti-web directory and run `mvn jetty:run`
+    4. This can be simplified by creating an alias, `alias web='(cd <server_root>; cd drishti-reporting && mvn jetty:run &; cd ../drishti-web && mvn jetty:run)'`
+
 
 ## Dristhi App Build
 
 **Note:** Dristhi App build depends on Server build, so please complete that before building app
 
-1. Clone Dristhi app git repository from https://github.com/SEL-Columbia/drishti-app using `git clone https://github.com/SEL-Columbia/drishti-app`. If *git* is not installed you can install it using an appropriate package manager with package name `git`
+1. Clone Dristhi app git repository from https://github.com/SEL-Columbia/drishti-app using `git clone https://github.com/SEL-Columbia/drishti-app`
 2. Android Emulator
     1. **Default Emulator:** Create, for the first time, and start an Android Virtual Device by using `android avd` with API level 16 and screen resolution 1024 X 600
     2. **Genymotion**: Alternatively, you can also install [Genymotion][13] Android Emulator which is much faster than the default Android emulator.
@@ -61,6 +69,19 @@ For Red Hat/Fedora/CentOS use `sudo yum install [pkg]`
         3. Follow [ARM Translation][15] instructions to get Dristhi app working on Genymotion
         4. Start Genymotion emulator and create a Virtual device with API level 16 and screen resolution 1024 X 600
 3. Run `mvn clean install` from the root directory of Dristhi app
+
+
+## Dristhi Dashboard Build
+
+1. Clone Dristhi Dashboard git repository from https://github.com/SEL-Columbia/drishti-site using `git clone https://github.com/SEL-Columbia/drishti-site`
+2. Run `npm install`
+3. Run `bower install`
+4. Run `grunt`. This will build the code (jshint verification, unit tests, concatenation, minification, etc) and generate runnable web app in `dist` directory
+5. To run dashboard locally
+    1. Run Dristhi Server locally by following the steps mentioned above
+    2. In &lt;dashboard_root&gt;/app/scripts/app.js comment the section of constants that have prod URLs (https://smartregistries.org) and uncomment the section which has local URLs (http://localhost:9292/localhost:9980)
+    3. Run `corsproxy`
+    4. Run `grunt server` from &lt;dashboard_root&gt;
 
 
 [1]: http://brew.sh/
@@ -78,6 +99,8 @@ For Red Hat/Fedora/CentOS use `sudo yum install [pkg]`
 [13]: http://www.genymotion.com/
 [14]: https://duckduckgo.com/?q=virtualbox
 [15]: http://forum.xda-developers.com/showthread.php?t=2528952
+[16]: http://git-scm.com/
+[17]: https://github.com/gr2m/CORS-Proxy
 
 [^1]:
 ```xml
