@@ -7,7 +7,7 @@
 
 	<meta name="author" content="Project Dristhi">
 
-<meta name="description" content="Dristhi Developer Machine Setup This document is work in progress, please update this based on your setup experience Note: The commands and paths &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Dristhi Developer Machine Setup Note: This document is work in progress, please update this based on your setup experience For Mac OS X 10.9.2 and &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -45,9 +45,11 @@
 	<div id="content" class="inner"><article class="page">
     <div class="entry-content"><h1>Dristhi Developer Machine Setup</h1>
 
-<p>This document is work in progress, please update this based on your setup experience</p>
+<p><strong>Note:</strong> This document is work in progress, please update this based on your setup experience</p>
 
-<p><strong>Note:</strong> The commands and paths specified below are for Mac OS X 10.9.2 and assumes that <a href="http://brew.sh/">Homebrew</a> has been installed.</p>
+<p>For Mac OS X 10.9.2 and later, make sure that <a href="http://brew.sh/">Homebrew</a> is installed, and use <code>brew install [pkg]</code>. To install a specific version of the [pkg], use <code>brew install [pkg] --version[version]</code><br/>
+For Ubuntu/Debian use <code>sudo apt-get install [pkg]</code><br/>
+For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
 
 <h2>Tools and Frameworks Setup</h2>
 
@@ -55,7 +57,7 @@
 <li>Apache Maven
 
 <ol>
-<li>Install Apache Maven 3.0 (brew install homebrew/versions/maven30). We have had issues with newer versions of maven, so it is advisable to install 3.0</li>
+<li>Install Apache Maven 3.0 using an appropriate package manager with package name <code>homebrew/versions/maven30</code>. We have had issues with newer versions of maven, so it is advisable to install 3.0</li>
 <li>Create/Update settings.xml file<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> at &lt;maven directory&gt; (&lt;user_home_directory&gt;/.m2 on Mac OS X)</li>
 <li>Increase maven permgen size by creating an environment variable called MAVEN_OPTS with value &ldquo;-XX:MaxPermSize=256m -Xmx512m&rdquo;. On Mac OS X this can be done by adding <code>export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx512m"</code> to bash_rc or bash_profile</li>
 </ol>
@@ -63,7 +65,7 @@
 <li>Android SDK
 
 <ol>
-<li>Download and install <a href="https://developer.android.com/sdk/index.html">Android SDK</a>. Alternatively you can install it using homebrew command <code>brew install android-sdk</code></li>
+<li>Download and install <a href="https://developer.android.com/sdk/index.html">Android SDK</a>. Alternatively you can install it using appropriate package manager with package name <code>android-sdk</code></li>
 <li>Launch Android SDK Manager by using <em>android</em> command. Install the below mentioned components
 
 <ol>
@@ -86,22 +88,22 @@
 <li>Node modules setup. <strong>Note:</strong> Some of these commands may require sudo permissions.
 
 <ol>
-<li>Install <a href="http://nodejs.org/">NodeJS</a> using <code>brew install node --version0.10.17</code></li>
-<li>Install <a href="https://npmjs.org/">npm</a> using <code>brew install npm --version1.3.8</code></li>
+<li>Install <a href="http://nodejs.org/">NodeJS</a> using an appropriate package manager with package name <code>node</code> and version <code>0.10.17</code></li>
+<li>Install <a href="https://npmjs.org/">npm</a> using an appropriate package manager with package name <code>npm</code> and version <code>1.3.8</code></li>
+<li>Install <a href="http://phantomjs.org/">PhantomJS</a> using an appropriate package manager with package name <code>phantomjs</code> and version <code>1.8.2</code>. <strong>Note:</strong> We have faced issues when running JS tests using Karma and PhantomJS due to conflicting versions of these being installed. The solution is to not have global installations (-g option), but it will require some development effort to get tests running with local installations.</li>
 <li>Install <a href="http://handlebarsjs.com/">Handlebars</a> using  <code>npm install -g handlebars@1.0.12</code></li>
 <li>Install <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> using <code>npm install -g karma@0.10.1</code></li>
-<li>Install <a href="http://phantomjs.org/">PhantomJS</a> using <code>brew install phantomjs --version1.8.2</code>. <strong>Note:</strong> We have faced issues when running JS tests using Karma and PhantomJS due to conflicting versions of these being installed. The solution is to not have global installations (-g option), but it will require some development effort to get tests running with local installations.</li>
 <li>Install <a href="http://gruntjs.com/">Grunt Command Line Tool</a> using <code>npm install grunt-cli@0.1.9</code></li>
 </ol>
 </li>
-<li>Install <a href="http://activemq.apache.org/">ActiveMQ</a> using <code>brew install activemq --version5.7.0</code>
+<li>Install <a href="http://activemq.apache.org/">ActiveMQ</a> using an appropriate package manager with package name <code>activemq</code> and version <code>5.7.0</code>
 
 <ol>
 <li>ActiveMQ needs to be started for Dristhi server to build, so follow the instructions at the end of the installation to start it the way you prefer</li>
 <li>ActiveMQ by default has only 1MB memory limit. This is usually not sufficient. Increase ActiveMQ memory by updating ActiveMQ configuration<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>. ActiveMQ configuration can be found at &lt;activemq_install_location&gt;/conf/activemq.xml</li>
 </ol>
 </li>
-<li>Install <a href="http://www.postgresql.org/">PostgreSQL</a> using <code>brew install postgresql --version9.2.1</code>
+<li>Install <a href="http://www.postgresql.org/">PostgreSQL</a> using an appropriate package manager with package name <code>postgresql</code> and version <code>9.2.1</code>
 
 <ol>
 <li>PostgreSQL needs to be started for Dristhi server to build, so follow the instructions at the end of the installation to start it the way you prefer</li>
@@ -109,14 +111,14 @@
 <li>Login to database using <code>psql -U postgres</code>. Create a database called &lsquo;drishti&rsquo; using <code>CREATE DATABASE drishti</code></li>
 </ol>
 </li>
-<li>Install <a href="https://couchdb.apache.org/">CouchDB</a> using <code>brew install couchdb --version1.2.0</code></li>
+<li>Install <a href="https://couchdb.apache.org/">CouchDB</a> using an appropriate package manager with package name <code>couchdb</code> and version <code>1.2.0</code></li>
 </ol>
 
 
 <h2>Dristhi Server</h2>
 
 <ol>
-<li>Clone Dristhi Server git repository from <a href="https://github.com/SEL-Columbia/dristhi">https://github.com/SEL-Columbia/dristhi</a> using <code>git clone https://github.com/SEL-Columbia/dristhi</code>. If <em>git</em> is not installed you can install it using <code>brew install git</code></li>
+<li>Clone Dristhi Server git repository from <a href="https://github.com/SEL-Columbia/dristhi">https://github.com/SEL-Columbia/dristhi</a> using <code>git clone https://github.com/SEL-Columbia/dristhi</code>. If <em>git</em> is not installed you can install it using an appropriate package manager with package name <code>git</code></li>
 <li>Run <code>mvn clean install</code> from the root directory of Dristhi Server</li>
 </ol>
 
@@ -126,7 +128,7 @@
 <p><strong>Note:</strong> Dristhi App build depends on Server build, so please complete that before building app</p>
 
 <ol>
-<li>Clone Dristhi app git repository from <a href="https://github.com/SEL-Columbia/drishti-app">https://github.com/SEL-Columbia/drishti-app</a> using <code>git clone https://github.com/SEL-Columbia/drishti-app</code>. If <em>git</em> is not installed you can install it using <code>brew install git</code></li>
+<li>Clone Dristhi app git repository from <a href="https://github.com/SEL-Columbia/drishti-app">https://github.com/SEL-Columbia/drishti-app</a> using <code>git clone https://github.com/SEL-Columbia/drishti-app</code>. If <em>git</em> is not installed you can install it using an appropriate package manager with package name <code>git</code></li>
 <li>Android Emulator
 
 <ol>
