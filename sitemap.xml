@@ -14,13 +14,19 @@
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/dev_box_setup/</loc>
-        <lastmod>2014-04-03T15:58:02+05:30</lastmod>
+        <lastmod>2014-04-15T17:35:18+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/architecture_forms/
+        </loc>
+        <lastmod>2014-04-16T16:47:25+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/architecture_sync/
         </loc>
-        <lastmod>2014-04-03T16:37:07+05:30</lastmod>
+        <lastmod>2014-04-15T17:03:27+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/tech_stack/</loc>
@@ -28,7 +34,7 @@
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/</loc>
-        <lastmod>2014-04-03T15:59:06+05:30</lastmod>
+        <lastmod>2014-04-15T16:38:50+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/robots.txt</loc>
