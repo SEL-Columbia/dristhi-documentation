@@ -108,8 +108,14 @@ This specifies the type of relationship. Currently supported valyes are *one_to_
 **from** and **to**  
 Together these two values specify how to load parent and child entities from a relational database.  
 
+## Dristhi Form Architecture
+
+![][forms_diagram]
+[Sequence Diagram for Dristhi Forms][5]
 
 [1]: http://opendatakit.org/help/form-design/xlsform/
 [2]: https://en.wikipedia.org/wiki/XForms
 [3]: https://enketo.org/
 [4]: https://github.com/MartijnR/enketo-dristhi
+[5]: {{root_url}}/images/custom/dristhi_app/forms.png
+[forms_diagram]: {{root_url}}/images/custom/dristhi_app/forms.png "Dristhi Forms Sequence Diagram"
