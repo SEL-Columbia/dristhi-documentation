@@ -17,7 +17,7 @@ title: "Dristhi Forms"
 3. XForm is then converted to Enketo HTML form by running the following command with the <form_id> replaced with the actual value, ``curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&form_id=<form_id>" https://enketo.formhub.org/transform/get_html_form``.
 4. This generates a xml document which contains two nodes, *model* and *form*, rest of the nodes can be ignored. *model* is the XForm Model instance, this is used by Enketo to do all the validations and calculations in the forms. *form* is the HTML DOM which Enketo uses to render the form
 5. *model* and *form* are saved as *model.xml* and *form.xml*. These files are then copied to the location <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/model.xml and <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/form.xml. When a form is launched, form_name is passed in the query parameter. Using this Enketo renders the form
-6. Another important part of form is form_definition.json file. This is a mapping file that is written for every form which maps the fields within the form to Dristh database. More about form_definition.json later
+6. Another important part of form is form_definition.json file. This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. More about form_definition.json later
 7. So *model.xml*, *form.xml* and *form_definition.json* comprise a Enketo Form
 
 ## How to update forms on Dristhi app
@@ -27,8 +27,8 @@ title: "Dristhi Forms"
 4. Copy the *model* node contents to <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/model.xml and the *form* node contents to <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/form.xml
 5. Update the form_definition.json according to the changes made to *model*
 
-## Structure of form_definition.json
-An example form_definition.json is below:
+## form_definition.json
+This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. An example form_definition.json is below:
 ``` json
 {
     "form_data_definition_version": "1",
@@ -57,7 +57,7 @@ Explanation for the same below:
 **form_data_definition_version**  
 This defines the version of the form definition. Every time the form definition changes, this version must be incremented. This will be useful when handling the form.  
 **bind_type**  
-This defines the entity for which the form is being filled. As of now, the possible values for this are eligible_couple, mother or child.  
+This defines the entity for which the form is being filled. As of now, the possible values for this are *eligible_couple, mother or child*.  
 **default_bind_path**  
 This is the default value for bind path in case it is not specified in the field.  
 **fields**  
@@ -72,6 +72,42 @@ This specifies the mapping path for a field in model.xml (Enketo form field). Fo
 This field tells Ziggy that the field should be pre-populated with the corresponding value.  
 **value**  
 This is the value for the field. When the form opens if *value* is specified then Enketo pre-populated the field with the specified on the form.  
+
+## entity_relationship.json
+Another important component of Dristhi forms is entity_relationship.json. There is one entity_relationship.json per application (in this case Dristhi). As the name suggests, it defines the relationship between the various entities of Dristhi app. The entities that are part of the app as of now are *eligible_couple, mother and child*. Dristhi's entity_relationship.json is below:
+```json
+[
+    {
+        "parent": "eligible_couple",
+        "child": "mother",
+        "field": "wife",
+        "kind": "one_to_one",
+        "from": "eligible_couple.id",
+        "to": "mother.ecCaseId"
+    },
+    {
+        "parent": "mother",
+        "child": "child",
+        "field": "children",
+        "kind": "one_to_many",
+        "from": "mother.id",
+        "to": "child.motherCaseId"
+    }
+]
+```
+Each entry in list defines a relation. We have two relationships in Dristhi, one_to_one between eligible_couple and mother and one_to_many between mother and child.
+Explanation for the fields below:  
+**parent**  
+This specifies the parent entity in the given relation.  
+**child**  
+This specifies the child entity in the given relation.  
+**field**  
+This specifies the field on parent entity which allows us to load child entity for that parent. This was added to support the cases where entities are stored on Document based Databases like CouchDB. This is currently not used or implemented in the app.  
+**kind**  
+This specifies the type of relationship. Currently supported valyes are *one_to_one* and *one_to_many*.  
+**from** and **to**  
+Together these two values specify how to load parent and child entities from a relational database.  
+
 
 [1]: http://opendatakit.org/help/form-design/xlsform/
 [2]: https://en.wikipedia.org/wiki/XForms
