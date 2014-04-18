@@ -11,7 +11,7 @@ title: "Dristhi Forms"
 * [Enketo][3]
 * [Enketo-Dristhi][4]
 
-## How forms are added to Dristhi App
+## How to add new forms to Dristhi App
 1. Forms are authored according to XLSForm standard (using Microsoft Excel)
 2. These forms are then uploaded to http://formhub.org/ which converts them into XForm standard. All Dristhi forms can be found at http://formhub.org/drishti_forms/ (this requires login)
 3. XForm is then converted to Enketo HTML form by running the following command with the <form_id> replaced with the actual value, ``curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&form_id=<form_id>" https://enketo.formhub.org/transform/get_html_form``.
@@ -113,9 +113,28 @@ Together these two values specify how to load parent and child entities from a r
 ![][forms_diagram]
 [Sequence Diagram for Dristhi Forms][5]
 
+The above mentioned components can be found in code as below:
+
+* Form Activity is one of FormActivity or MicroFormActivity based on whether the form is opened in full screen mode or in micro form mode
+* Enketo Form Template refers to the template.html of Enketo Dristhi. In Dristhi app, this can be found at <app_root>/dristhi-app/assets/www/enketo/template.html
+* Dristhi Android Context is implemented as FormWebInterface. This object is injected into Enketo as a Javascript object using [Android Javascript Interface API][6]
+* Ziggy Form Data Controller is the object in Ziggy that is implemented as ziggy/FormDataController. This can be found in Ziggy at <ziggy_root>/ziggy/src/FormDataController
+
+More information about the sequence diagram messages below:
+
+1. When a form is to be launched, Form Activity is used to open the form. Form name, Entity ID and meta data (field overrides, reminder ID, etc) are passed to Form Activity via the [Intent][7]
+2. Form Activity then uses webView to load Enketo-Dristhi's template.html and passes to it the intent parameters mentioned above. It also injects Dristhi Android Context as a Javascript object. template.html is the skeleton of a Enketo form
+3. Enketo then gets the XForm Model from Dristhi Android Context by calling getModel method. Dristhi Android Context would then return the XForm Model which is the contents of file at <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/model.xml
+4. Enketo then gets the HTML Form DOM from Dristhi Android Context by calling getForm method. Dristhi Android Context would then return the DOM which is the contents of file at <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/form.xml
+5. Enketo then calls Ziggy's Form Data Controller to get the form model. Form model will be similar in structue to form_definition, but with the values per-populated. Enketo passes the query params to Ziggy and Ziggy uses these to load the data from Dristhi App SQLite database and returns the form model to Enketo
+6. Enketo uses XForm Model, HTML Form DOM and form model to render and pre-populate the form
+
+
 [1]: http://opendatakit.org/help/form-design/xlsform/
 [2]: https://en.wikipedia.org/wiki/XForms
 [3]: https://enketo.org/
 [4]: https://github.com/MartijnR/enketo-dristhi
 [5]: {{root_url}}/images/custom/dristhi_app/forms.png
+[6]: https://developer.android.com/guide/webapps/webview.html#UsingJavaScript
+[7]: https://developer.android.com/reference/android/content/Intent.html
 [forms_diagram]: {{root_url}}/images/custom/dristhi_app/forms.png "Dristhi Forms Sequence Diagram"
