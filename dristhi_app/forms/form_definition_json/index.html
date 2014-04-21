@@ -3,12 +3,11 @@
 <html lang="en-GB">
 <head>
 	<meta charset="utf-8">
-	<title>Dristhi Forms  | Project Dristhi</title>
+	<title>form_definition.json  | Project Dristhi</title>
 
 	<meta name="author" content="Project Dristhi">
 
-<meta name="description" content="Dristhi Forms Tools and Standards used XLSForm: All the forms are authored as per XLSForm standard using Microsoft Excel
-XForm: XLSForms are then &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="form_definition.json This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. An example &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -44,45 +43,9 @@ XForm: XLSForms are then &hellip;"> <meta name="keywords" content="">
 </header>
 
 	<div id="content" class="inner"><article class="page">
-    <div class="entry-content"><h1>Dristhi Forms</h1>
+    <div class="entry-content"><h1>form_definition.json</h1>
 
-<h2>Tools and Standards used</h2>
-
-<ul>
-<li><a href="http://opendatakit.org/help/form-design/xlsform/">XLSForm</a>: All the forms are authored as per XLSForm standard using Microsoft Excel</li>
-<li><a href="https://en.wikipedia.org/wiki/XForms">XForm</a>: XLSForms are then uploaded to <a href="http://formhub.org/">http://formhub.org/</a></li>
-<li><a href="https://enketo.org/">Enketo</a></li>
-<li><a href="https://github.com/MartijnR/enketo-dristhi">Enketo-Dristhi</a></li>
-</ul>
-
-
-<h2>How forms are added to Dristhi App</h2>
-
-<ol>
-<li>Forms are authored according to XLSForm standard (using Microsoft Excel)</li>
-<li>These forms are then uploaded to <a href="http://formhub.org/">http://formhub.org/</a> which converts them into XForm standard. All Dristhi forms can be found at <a href="http://formhub.org/drishti_forms/">http://formhub.org/drishti_forms/</a> (this requires login)</li>
-<li>XForm is then converted to Enketo HTML form by running the following command with the &lt;form_id> replaced with the actual value, <code>curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&amp;form_id=&lt;form_id&gt;" https://enketo.formhub.org/transform/get_html_form</code>.</li>
-<li>This generates a xml document which contains two nodes, <em>model</em> and <em>form</em>, rest of the nodes can be ignored. <em>model</em> is the XForm Model instance, this is used by Enketo to do all the validations and calculations in the forms. <em>form</em> is the HTML DOM which Enketo uses to render the form</li>
-<li><em>model</em> and <em>form</em> are saved as <em>model.xml</em> and <em>form.xml</em>. These files are then copied to the location &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/model.xml and &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/form.xml. When a form is launched, form_name is passed in the query parameter. Using this Enketo renders the form</li>
-<li>Another important part of form is form_definition.json file. This is a mapping file that is written for every form which maps the fields within the form to Dristh database. More about form_definition.json later</li>
-<li>So <em>model.xml</em>, <em>form.xml</em> and <em>form_definition.json</em> comprise a Enketo Form</li>
-</ol>
-
-
-<h2>How to update forms on Dristhi app</h2>
-
-<ol>
-<li>Find the id of the form that needs to be updated. This can be done by locating the form at <a href="http://formhub.org/drishti_forms/">http://formhub.org/drishti_forms/</a></li>
-<li>Find the name of the form on Dristhi app. This can be done by locating the form at &lt;dristhi_app_root>/dristhi-app/assets/www/form directory</li>
-<li>Run the following command by replacing &lt;form_id> with the actual form_id, <code>curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&amp;form_id=&lt;form_id&gt;" https://enketo.formhub.org/transform/get_html_form</code></li>
-<li>Copy the <em>model</em> node contents to &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/model.xml and the <em>form</em> node contents to &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/form.xml</li>
-<li>Update the form_definition.json according to the changes made to <em>model</em></li>
-</ol>
-
-
-<h2>Structure of form_definition.json</h2>
-
-<p>An example form_definition.json is below:</p>
+<p>This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. An example form_definition.json is below:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -135,7 +98,7 @@ XForm: XLSForms are then &hellip;"> <meta name="keywords" content="">
 <strong>form_data_definition_version</strong><br/>
 This defines the version of the form definition. Every time the form definition changes, this version must be incremented. This will be useful when handling the form.<br/>
 <strong>bind_type</strong><br/>
-This defines the entity for which the form is being filled. As of now, the possible values for this are eligible_couple, mother or child.<br/>
+This defines the entity for which the form is being filled. As of now, the possible values for this are <em>eligible_couple, mother or child</em>.<br/>
 <strong>default_bind_path</strong><br/>
 This is the default value for bind path in case it is not specified in the field.<br/>
 <strong>fields</strong><br/>

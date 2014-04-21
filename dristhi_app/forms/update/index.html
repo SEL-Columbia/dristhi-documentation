@@ -3,15 +3,11 @@
 <html lang="en-GB">
 <head>
 	<meta charset="utf-8">
-	<title>Table of Contents  | Project Dristhi</title>
+	<title>How to update forms on Dristhi app  | Project Dristhi</title>
 
 	<meta name="author" content="Project Dristhi">
 
-<meta name="description" content="Table of Contents Dristhi Developer Machine Setup
-Dristhi Android Application Tech Stack
-Sync
-Forms Tools and Standards
-How to add new forms to &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="How to update forms on Dristhi app Find the id of the form that needs to be updated. This can be done by locating the form at http://formhub.org/ &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -47,29 +43,15 @@ How to add new forms to &hellip;"> <meta name="keywords" content="">
 </header>
 
 	<div id="content" class="inner"><article class="page">
-    <div class="entry-content"><h1>Table of Contents</h1>
+    <div class="entry-content"><h1>How to update forms on Dristhi app</h1>
 
-<ul>
-<li><a href="/dristhi-documentation/dev_box_setup">Dristhi Developer Machine Setup</a></li>
-<li>Dristhi Android Application
-
-<ul>
-<li><a href="/dristhi-documentation/dristhi_app/tech_stack">Tech Stack</a></li>
-<li><a href="/dristhi-documentation/dristhi_app/architecture_sync">Sync</a></li>
-<li>Forms
-
-<ul>
-<li><a href="/dristhi-documentation/dristhi_app/forms/tools_and_standards">Tools and Standards</a></li>
-<li><a href="/dristhi-documentation/dristhi_app/forms/add_new">How to add new forms to Dristhi App</a></li>
-<li><a href="/dristhi-documentation/dristhi_app/forms/update">How to update forms on Dristhi app</a></li>
-<li><a href="/dristhi-documentation/dristhi_app/forms/form_definition_json">form_definition.json</a></li>
-<li><a href="/dristhi-documentation/dristhi_app/forms/entity_relationship_json">entity_relationship.json</a></li>
-<li><a href="/dristhi-documentation/dristhi_app/forms/architecture_forms">Dristhi Form Architecture</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<ol>
+<li>Find the id of the form that needs to be updated. This can be done by locating the form at <a href="http://formhub.org/drishti_forms/">http://formhub.org/drishti_forms/</a></li>
+<li>Find the name of the form on Dristhi app. This can be done by locating the form at &lt;dristhi_app_root>/dristhi-app/assets/www/form directory</li>
+<li>Run the following command by replacing &lt;form_id> with the actual form_id, <code>curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&amp;form_id=&lt;form_id&gt;" https://enketo.formhub.org/transform/get_html_form</code></li>
+<li>Copy the <em>model</em> node contents to &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/model.xml and the <em>form</em> node contents to &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/form.xml</li>
+<li>Update the form_definition.json according to the changes made to <em>model</em></li>
+</ol>
 
 </div>
 </article>

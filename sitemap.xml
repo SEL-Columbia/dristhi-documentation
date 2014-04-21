@@ -18,15 +18,41 @@
     </url>
     <url>
         <loc>
-            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/architecture_forms/
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/architecture_sync/
         </loc>
-        <lastmod>2014-04-16T16:47:25+05:30</lastmod>
+        <lastmod>2014-04-18T16:26:53+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/add_new/</loc>
+        <lastmod>2014-04-18T16:40:59+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/architecture_sync/
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/architecture_forms/
         </loc>
-        <lastmod>2014-04-15T17:03:27+05:30</lastmod>
+        <lastmod>2014-04-21T14:33:20+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/entity_relationship_json/
+        </loc>
+        <lastmod>2014-04-18T16:42:28+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/form_definition_json/
+        </loc>
+        <lastmod>2014-04-18T16:42:08+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/tools_and_standards/
+        </loc>
+        <lastmod>2014-04-18T16:40:45+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/update/</loc>
+        <lastmod>2014-04-18T16:42:04+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/tech_stack/</loc>
@@ -34,7 +60,7 @@
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/</loc>
-        <lastmod>2014-04-15T16:38:50+05:30</lastmod>
+        <lastmod>2014-04-18T16:45:26+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/robots.txt</loc>
