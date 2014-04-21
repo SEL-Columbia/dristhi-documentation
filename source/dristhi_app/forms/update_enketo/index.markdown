@@ -20,3 +20,4 @@ title: "How to update Enketo on Dristhi app"
 3. Delete the index.html file as it is not used in Dristhi app by running the following command from app_root, `rm dristhi-app/assets/www/enketo/index.html`
 
 [1]: https://github.com/MartijnR/enketo-dristhi
+[2]: https://github.com/MartijnR/enketo-dristhi/blob/master/README.md
