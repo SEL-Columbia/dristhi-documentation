@@ -52,13 +52,19 @@
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/update/</loc>
-        <lastmod>2014-04-21T15:17:01+05:30</lastmod>
+        <lastmod>2014-04-21T15:39:15+05:30</lastmod>
     </url>
     <url>
         <loc>
             http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/forms/update_enketo/
         </loc>
-        <lastmod>2014-04-21T15:37:18+05:30</lastmod>
+        <lastmod>2014-04-21T15:41:47+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/smart_registers/
+        </loc>
+        <lastmod>2014-04-22T16:42:10+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/tech_stack/</loc>
@@ -66,7 +72,7 @@
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/</loc>
-        <lastmod>2014-04-21T15:17:52+05:30</lastmod>
+        <lastmod>2014-04-22T11:47:16+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/robots.txt</loc>
