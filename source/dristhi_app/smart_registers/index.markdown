@@ -23,11 +23,15 @@ There is only one service mode which displays all the ECs
 
 ## Family Planning Register (FP Register)
 
-The register also lists all the ECs, but the main focus is on family planning services.  
+The register also lists all the ECs, but, as the name suggests, the main focus is on family planning services.  
 
 ### Service Modes
 
-There are two categories of Service modes in FP Register. First category includes all the ECs who use FP method (called 'FP Methods') and is further divided based on the FP methods (example Condom, OCP, etc). Second category includes all ECs who do not use any FP method (called 'FP Prioritization') and is further divided into High Priority ECs, ECs having more than two children and ECs having one child.  
+* FP Methods  
+	This shows all the ECs who use FP method. It is further divided based on the FP methods (example Condom, OCP, etc).  
+* FP Prioritization  
+	This shows all ECs who do not use any FP method and is further divided into High Priority ECs, ECs having more than two children and ECs having one child.  
+
 This way of grouping helps ANM in providing appropriate FP advice/service for the client, for example, all ECs using OCP FP method need to be given fresh stock of OC Pills regularly and all the ECs who have more than two children and are not using any FP method need to be strongly adviced to use a FP Method, etc.  
 
 ### Services that can be provided
@@ -38,6 +42,37 @@ This way of grouping helps ANM in providing appropriate FP advice/service for th
 * Renew of FP product for methods like Condom, OCP, etc
 
 ## Ante-natal Care Register (ANC Register)
+
+This register lists all the ANCs (pregnany women). Some of the important ANC information that is displayed in this register are Thayi Card number, ANC number, EDD, LMP, Number of weeks pregnant, Risk factors, etc  
+
+### Service Modes
+
+* Overview  
+	Displays Risk Factors and ANC visit, TT and IFA reminders  
+* ANC Visits  
+	Displays the reminders for ANC1 to ANC4  
+	If any ANC visit has already happened then it displays the date of the visit, BP and weight recorded during the visit     
+* Hb/IFA  
+	Displays HB Test and IFA Reminders  
+	When Hb Test results are available the date, Hb level and colour coded heamoglobin level (indicating Severe Anaemia, Anaemia and No Anaemia) are displayed  
+	When IFA tablets given information is available date and the number of tablets given are displayed  
+* TT  
+	Displays the three TT dose reminders (TT1, TT2 and TT Booster)  
+	When a TT dose is provided, the date when the dose was provided is also displayed  
+* Delivery Plan  
+	This is a module that helps ANM to educate and prepare the pregnant woman and her family on how to plan for the Delivery  
+	When delivery plan is complete, Delivery place, Transportation, Companion, Asha phone number, Contact number and Risks are displayed  
+
+### Services that can be provided
+
+* ANC Visit
+* Hb Test
+* IFA tablets
+* TT
+* Delivery Plan
+* Delivery Outcome
+* ANC Invesgigations
+* ANC Close
 
 ## Post-natal Care Register (PNC Register)
 
