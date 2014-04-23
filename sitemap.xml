@@ -62,9 +62,15 @@
     </url>
     <url>
         <loc>
+            http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/smart_registers/components/
+        </loc>
+        <lastmod>2014-04-23T13:53:39+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
             http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/smart_registers/
         </loc>
-        <lastmod>2014-04-23T12:06:39+05:30</lastmod>
+        <lastmod>2014-04-23T12:10:52+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/dristhi_app/tech_stack/</loc>
@@ -72,7 +78,7 @@
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/</loc>
-        <lastmod>2014-04-22T11:47:16+05:30</lastmod>
+        <lastmod>2014-04-23T13:51:17+05:30</lastmod>
     </url>
     <url>
         <loc>http://SEL-Columbia.github.io/dristhi-documentation/robots.txt</loc>
