@@ -93,3 +93,20 @@ This register displays all the PNCs (woman who have delivered in the last 60 day
 * PNC Close
 
 ## Child Register
+
+This register displays all the Children. Some of the important information that is displayed are Mother EC number, thayi card number, date of birth of the child, last service provided, sickness status and reminders and dates of immunisations provided.
+
+### Service Modes
+
+* **Overview**  
+	Displays date of birth of the child, last service provided, sickness status.  
+* **Immunization 0-9**  
+	Displays information of all the immunizations that the child gets upto 9 months of age. This includes BCG, HepB Birth Dose, OPV and Pentavalent.  
+* **Immunization 9+**  
+	Displays information of all the immunizations that the child gets after the age of 9 months. This includes Measles, OPV Booster, DPT Booster. Vitamin A dose information is also displayed.  
+
+### Services that can be provided
+
+* Sick Visit or Child Illness
+* Child Immunizations
+* Child Close
