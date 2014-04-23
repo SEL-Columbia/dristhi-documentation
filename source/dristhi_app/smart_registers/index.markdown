@@ -5,108 +5,51 @@ title: "Smart Registers"
 
 # Smart Registers
 
-All the clients that the ANM serves are displayed in Smart Registers. There are five Smart Registers in Dristhi app, an overview of them below.
+All the clients that the ANM serves are displayed in Smart Registers.
 
-## Eligible Couple Register (EC Register)
+## Structure of a Smart Register
 
-This register has all the ECs that the ANM serves listed.
+![][smart_register_structure_diagram]
+[Structure of Smart Register][1]
 
-### Service Modes
-There is only one service mode which displays all the ECs.
+### Navigation Bar
 
-### Services that can be provided
-* Register/Change FP method
-* Register ANC
-* Register Child
-* Edit EC data
-* Close the EC
+* **Back**  
+  When tapped navigates to previous screen.  
+* **Title**  
+  Displays the title of the current register that is open. For example EC is the title of EC Register. When tapped navigates to previous screen.  
+* **Report Month**  
+  Displays the start and end date of current report month. When tapped navigates to previous screen.  
+* **Service Mode**  
+  Displays the current service mode. When tapped all the available service modes are displayed
+* **Sort**  
+  When tapped displays all the available sort options.  
+* **Filter**  
+  When tapped displays all the available filter options.  
+* **Register (Plus icon)**  
+  When tapped opens a registration form that is appropriate to the register. For example, on EC Register this will open EC Registration form, where as on ANC Register this will open ANC Registration OA form.  
+* **Search**  
+  This allows the user to search for clients. On EC Register this searches in wife name, EC number fields.      
 
-## Family Planning Register (FP Register)
+### Status Bar
 
-The register also lists all the ECs, but, as the name suggests, the main focus is on family planning services.
+* **Applied Sort**  
+  Displays the current sort that is applied.  
+* **Applied Filter**  
+  Displays the current filter that is applied.    
 
-### Service Modes
+### Client list header
 
-* **FP Methods**  
-  This shows all the ECs who use FP method. It is further divided based on the FP methods (example Condom, OCP, etc).  
-* **FP Prioritization**  
-  This shows all ECs who do not use any FP method and is further divided into High Priority ECs, ECs having more than two children and ECs having one child.  
+This displays the column headers of client list.
 
-This way of grouping helps ANM in providing appropriate FP advice/service for the client, for example, all ECs using OCP FP method need to be given fresh stock of OC Pills regularly and all the ECs who have more than two children and are not using any FP method need to be strongly adviced to use a FP Method, etc.
+### Client list
 
-### Services that can be provided
-* Change FP method
-* Record ECP
-* Record Side Effects due to FP method usage
-* Follow-up for methods like Male and Female sterilization, IUD, etc
-* Renew of FP product for methods like Condom, OCP, etc
+This displays the client list. The left part of the list has identification information, like photo, name, EC number, etc. The right part of the list has health content. The health content is displayed according to the currently selected service mode.   
 
-## Ante-natal Care Register (ANC Register)
+### Pagination Bar
 
-This register displays all the ANCs (pregnant women). Some of the important ANC information that is displayed in this register are Thayi Card number, ANC number, EDD, LMP, Number of weeks pregnant, Risk factors, etc.
+At any given time, only twenty clients are shown per page. Pagination Bar shows the current page that is displayed and the total number of pages. It also allows the user to navigate the client list using **Previous** and **Next** buttons.  
 
-### Service Modes
 
-* **Overview**  
-  Displays Risk Factors and ANC visit, TT and IFA reminders.  
-* **ANC Visits**  
-  Displays the reminders for ANC1 to ANC4.  
-  If any ANC visit has already happened then it displays the date of the visit, BP and weight recorded during the visit.     
-* **Hb/IFA**  
-  Displays HB Test and IFA Reminders.  
-  When Hb Test results are available the date, Hb level and colour coded heamoglobin level (indicating Severe Anaemia, Anaemia and No Anaemia) are displayed  
-  When IFA tablets given information is available date and the number of tablets given are displayed  
-* **TT**  
-  Displays the three TT dose reminders (TT1, TT2 and TT Booster)  
-  When a TT dose is provided, the date when the dose was provided is also displayed  
-* **Delivery Plan**  
-  This is a module that helps ANM to educate and prepare the pregnant woman and her family on how to plan for the Delivery  
-  When delivery plan is complete, Delivery place, Transportation, Companion, Asha phone number, Contact number and Risks are displayed  
-
-### Services that can be provided
-
-* ANC Visit
-* Hb Test
-* IFA tablets
-* TT
-* Delivery Plan
-* Delivery Outcome
-* ANC Invesgigations
-* ANC Close
-
-## Post-natal Care Register (PNC Register)
-
-This register displays all the PNCs (woman who have delivered in the last 60 days). Some of the important PNC information that is displayed in this register are Thayi Card number, delivery date, place, type, complications, post partum family planning and children sex, birth weight, etc.
-
-### Service Modes
-
-* **Overview**  
-  Displays thayi card number, delivery information, delivery complications, PPFP and Children information 
-* **PNC Visits**  
-  Displays a visualiasation of the visits that happened in the first seven days after the delivery. This is the most critical period for both PNC and new born child. The bar in the visualisation turns green if there were PNC visits done on the 1st, 3rd and the 7th day after delivery. It turns yellow if at least one PNC visit happened in this period. It turns red if no PNC visit was done in this period.  
-  Day and date of last three PNC Visits are displayed
-
-### Services that can be provided
-
-* PNC Visit
-* Postpartum family planning (PPFP)
-* PNC Close
-
-## Child Register
-
-This register displays all the Children. Some of the important information that is displayed are Mother EC number, thayi card number, date of birth of the child, last service provided, sickness status and reminders and dates of immunisations provided.
-
-### Service Modes
-
-* **Overview**  
-  Displays date of birth of the child, last service provided, sickness status.  
-* **Immunization 0-9**  
-  Displays information of all the immunizations that the child gets upto 9 months of age. This includes BCG, HepB Birth Dose, OPV and Pentavalent.  
-* **Immunization 9+**  
-  Displays information of all the immunizations that the child gets after the age of 9 months. This includes Measles, OPV Booster, DPT Booster. Vitamin A dose information is also displayed.  
-
-### Services that can be provided
-
-* Sick Visit or Child Illness
-* Child Immunizations
-* Child Close
+[1]: {{root_url}}/images/custom/dristhi_app/smart_register_structure.png
+[smart_register_structure_diagram]: {{root_url}}/images/custom/dristhi_app/smart_register_structure.png "Structure of Smart Register"

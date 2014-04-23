@@ -18,7 +18,7 @@ title: "Table of Contents"
         * [How to update forms on Dristhi app][9]
         * [How to update Enketo on Dristhi app][10]
     * [Smart Registers][11]
-        * [Components][12]
+        * [Overview][12]
         * Architecture
 
 [1]: {{root_url}}/dev_box_setup
@@ -32,4 +32,4 @@ title: "Table of Contents"
 [9]: {{root_url}}/dristhi_app/forms/update
 [10]: {{root_url}}/dristhi_app/forms/update_enketo
 [11]: {{root_url}}/dristhi_app/smart_registers
-[12]: {{root_url}}/dristhi_app/smart_registers/components
+[12]: {{root_url}}/dristhi_app/smart_registers/overview
