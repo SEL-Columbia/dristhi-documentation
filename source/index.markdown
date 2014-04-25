@@ -19,7 +19,7 @@ title: "Table of Contents"
         * [How to update Enketo on Dristhi app][10]
     * [Smart Registers][11]
         * [Overview][12]
-        * Architecture
+        * [Architecture][13]
 
 [1]: {{root_url}}/dev_box_setup
 [2]: {{root_url}}/dristhi_app/tech_stack
@@ -33,3 +33,4 @@ title: "Table of Contents"
 [10]: {{root_url}}/dristhi_app/forms/update_enketo
 [11]: {{root_url}}/dristhi_app/smart_registers
 [12]: {{root_url}}/dristhi_app/smart_registers/overview
+[13]: {{root_url}}/dristhi_app/smart_registers/architecture_hybrid_registers
