@@ -62,9 +62,9 @@
 <p>The above mentioned components can be found in code as below:</p>
 
 <ul>
-<li>Register Activity is implemeted as ANCSmartRegisterActivity class. This is an Android Activity which has a webView control. When this activity is started it loads the Register HTML into the webView</li>
-<li>Register HTML is implemeted as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/www/smart_registry/anc_register.html">anc_register.html</a>. This is implemented using AngularJS</li>
-<li>Register Controller is implemented as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/anc_register_app.js">anc_register_app.js</a>. Additionally all the common functionality across the registers, like search, sort, etc, are implemented in a common controller called <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/list_view_controller.js">list_view_controller</a></li>
+<li>Register Activity is implemeted as ANCSmartRegisterActivity class. This is an Android Activity which has a webView control</li>
+<li>Register HTML is implemeted as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/www/smart_registry/anc_register.html">anc_register.html</a>. This is implemented as an AngularJS application</li>
+<li>Register Controller is implemented as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/anc_register_app.js">anc_register_app.js</a>. Additionally all the common functionality across the registers, like search, sort, etc, are implemented in a common controller called <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/list_view_controller.js">list_view_controller</a>. list_view_controller is included in all the smart registers</li>
 <li>Android Context is implemented as ANCSmartRegisterController. When Register Activity loads the html into webView, it injects this Java object as a Javscript object using Android Javascript Interface API. Register HTML then uses this object to load the data from the local SQLite database</li>
 <li>Register Service is implemented as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/anc_service.js">anc_service.js</a></li>
 </ul>
@@ -74,6 +74,17 @@
 
 <ol>
 <li>When a smart register is opened Register Activity is started</li>
+<li>Register Actvity uses webView to load Register HTML</li>
+<li>This initialises AngularJS application and controllers (Register Controller and list view controller)</li>
+<li>Register Controller loads the client list
+
+<ol>
+<li>It calls Get Clients on Android Context</li>
+<li>Android Context loads the data from SQLIte Database and returns the data in JSON format. This JSON is cached using <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/src/main/java/org/ei/drishti/util/Cache.java">Cache</a> object to reduce the load time of the register</li>
+</ol>
+</li>
+<li>Register controller pre-processes the client list before rendering it. Pre-process step includes converting date fields to DD/MM/YYYY format; title casing text fields like Wife Name, Village, etc; parsing reminders and service provided information, etc</li>
+<li>Register HTML then renders the client list</li>
 </ol>
 
 </div>
