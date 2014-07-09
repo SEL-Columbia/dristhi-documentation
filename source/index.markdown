@@ -17,10 +17,20 @@ title: "Table of Contents"
         * [How to add new forms to Dristhi App][8]
         * [How to update forms on Dristhi app][9]
         * [How to update Enketo on Dristhi app][10]
+		* [Injecting values to forms while loading][15]
     * [Smart Registers][11]
         * [Overview][12]
         * [Architecture of Hybrid Registers][13]
 		* [Architecture of Native Registers] [14]
+		* [How to add a new register][16]
+		* [Service Modes][17]
+		* [Reminders and Schedules][18]
+	* Encryption and Security
+		* [SQLCipher and Encryption] [19]
+	* Videos
+		* [Dristhi IEC App][20]
+		* [How to add a new video][21]
+	 
 
 [1]: {{root_url}}/dev_box_setup
 [2]: {{root_url}}/dristhi_app/tech_stack
@@ -36,3 +46,10 @@ title: "Table of Contents"
 [12]: {{root_url}}/dristhi_app/smart_registers/overview
 [13]: {{root_url}}/dristhi_app/smart_registers/architecture_hybrid_registers
 [14]: {{root_url}}/dristhi_app/smart_registers/architecture_native_registers
+[15]: {{root_url}}/coming-soon
+[16]: {{root_url}}/coming-soon
+[17]: {{root_url}}/coming-soon
+[18]: {{root_url}}/coming-soon
+[19]: {{root_url}}/coming-soon
+[20]: {{root_url}}/coming-soon
+[21]: {{root_url}}/coming-soon
