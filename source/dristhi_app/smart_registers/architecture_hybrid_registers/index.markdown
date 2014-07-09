@@ -31,7 +31,7 @@ More information about the sequence diagram messages below:
 3. This initialises AngularJS application and controllers (Register Controller and list view controller)
 4. Register Controller loads the client list
    1. It calls Get Clients on Android Context
-   2. Android Context loads the data from SQLIte Database and returns the data in JSON format. This JSON is cached using [Cache][10] object to reduce the load time of the register
+   2. Android Context loads the data from SQLite Database and returns the data in JSON format. This JSON is cached using [Cache][10] object to reduce the load time of the register
 5. Register controller pre-processes the client list before rendering it. Pre-process step includes converting date fields to DD/MM/YYYY format; title casing text fields like Wife Name, Village, etc; parsing reminders and service provided information, etc
 6. Register HTML then renders the client list
 
