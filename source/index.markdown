@@ -46,8 +46,8 @@ title: "Table of Contents"
 [12]: {{root_url}}/dristhi_app/smart_registers/overview
 [13]: {{root_url}}/dristhi_app/smart_registers/architecture_hybrid_registers
 [14]: {{root_url}}/dristhi_app/smart_registers/architecture_native_registers
-[15]: {{root_url}}/coming-soon
-[16]: {{root_url}}/coming-soon
+[15]: {{root_url}}/dristhi_app/forms/injecting_values_in_forms
+[16]: {{root_url}}/dristhi_app/smart_registers/adding_a_new_register
 [17]: {{root_url}}/coming-soon
 [18]: {{root_url}}/coming-soon
 [19]: {{root_url}}/coming-soon
