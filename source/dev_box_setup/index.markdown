@@ -84,6 +84,11 @@ For Red Hat/Fedora/CentOS use `sudo yum install [pkg]`
     3. Run `corsproxy`
     4. Run `grunt server` from &lt;dashboard_root&gt;
 
+## Troubleshooting 
+
+1. `The Genymotion virtual device could not obtain an IP address.`
+     Make sure that a host only network is configured on your virtual box with DHCP server enabled. To ensure this, go to the virtual box's preferences. 
+     On the network tab, go to the 'Host-only networks' tab and create a host only network if it does not exist. If it does, edit this network and go to the DHCP Server tab and check the "Enable server" checkbox. Provide all the necessary fields here. Now restart the genymotion virtual device.
 
 [1]: http://brew.sh/
 [2]: https://developer.android.com/sdk/index.html
