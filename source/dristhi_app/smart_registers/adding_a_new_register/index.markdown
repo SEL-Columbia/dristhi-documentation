@@ -14,7 +14,7 @@ The following steps are involved in adding a new register to the app
 * The Register Activity shall instantiate the necessary controllers and the ClientProviders as required
 * Once the register has been defined, it needs to be added to the home register for it to be launched
 * To add a new button to the Home Screen, the description of then new button needs to be added to the layout file for the home screen 
-* For example, the EC Register button is defined in the [smart_registers_home.xml] (https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/res/layout/smart_registers_home.xml#L26-56) as below:
+* For example, the EC Register button is defined in the [smart_registers_home.xml](https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/res/layout/smart_registers_home.xml#L26-56) as below:
 ```xml
 <FrameLayout
         android:layout_width="0dp"
