@@ -23,14 +23,13 @@ title: "Table of Contents"
         * [Architecture of Hybrid Registers][13]
 		* [Architecture of Native Registers] [14]
 		* [How to add a new register][16]
-		* [Service Modes][17]
-		* [Reminders and Schedules][18]
+		* [Reminders and Schedules][17]
 	* Encryption and Security
-		* [SQLCipher and Encryption] [19]
+		* [SQLCipher and Encryption] [18]
 	* Videos
 		* [Dristhi IEC App][20]
 		* [How to add a new video][21]
-	 
+
 
 [1]: {{root_url}}/dev_box_setup
 [2]: {{root_url}}/dristhi_app/tech_stack
@@ -48,8 +47,7 @@ title: "Table of Contents"
 [14]: {{root_url}}/dristhi_app/smart_registers/architecture_native_registers
 [15]: {{root_url}}/dristhi_app/forms/injecting_values_in_forms
 [16]: {{root_url}}/dristhi_app/smart_registers/adding_a_new_register
-[17]: {{root_url}}/coming-soon
-[18]: {{root_url}}/coming-soon
-[19]: {{root_url}}/coming-soon
+[17]: {{root_url}}/dristhi_app/smart_registers/reminders_and_schedules
+[18]: {{root_url}}/dristhi_app/security/sqlcipher_and_encryption
 [20]: {{root_url}}/coming-soon
 [21]: {{root_url}}/coming-soon
