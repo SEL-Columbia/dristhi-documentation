@@ -1,0 +1,92 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Dristhi Form Architecture  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Dristhi Form Architecture Sequence Diagram for Dristhi Forms The above mentioned components can be found in code as below: Form Activity is one of &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h2>Dristhi Form Architecture</h2>
+
+<p><img src="/dristhi-documentation/images/custom/dristhi_app/forms.png" title="Dristhi Forms Sequence Diagram" alt="" />
+<a href="/dristhi-documentation/images/custom/dristhi_app/forms.png">Sequence Diagram for Dristhi Forms</a></p>
+
+<p>The above mentioned components can be found in code as below:</p>
+
+<ul>
+<li>Form Activity is one of FormActivity or MicroFormActivity based on whether the form is opened in full screen mode or in micro form mode</li>
+<li>Enketo Form Template refers to the template.html of Enketo Dristhi. In Dristhi app, this can be found at <app_root>/dristhi-app/assets/www/enketo/template.html</li>
+<li>Dristhi Android Context is implemented as FormWebInterface. This object is injected into Enketo as a Javascript object using <a href="https://developer.android.com/guide/webapps/webview.html#UsingJavaScript">Android Javascript Interface API</a></li>
+<li>Ziggy Form Data Controller is the object in Ziggy that is implemented as ziggy/FormDataController. This can be found in Ziggy at <ziggy_root>/ziggy/src/FormDataController</li>
+</ul>
+
+
+<p>More information about the sequence diagram messages below:</p>
+
+<ol>
+<li>When a form is to be launched, Form Activity is used to open the form. Form name, Entity ID and meta data (field overrides, reminder ID, etc) are passed to Form Activity via the <a href="https://developer.android.com/reference/android/content/Intent.html">Intent</a></li>
+<li>Form Activity then uses webView to load Enketo-Dristhi&rsquo;s template.html and passes to it the intent parameters mentioned above. It also injects Dristhi Android Context as a Javascript object. template.html is the skeleton of a Enketo form</li>
+<li>Enketo then gets the XForm Model from Dristhi Android Context by calling getModel method. Dristhi Android Context would then return the XForm Model which is the contents of file at <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/model.xml</li>
+<li>Enketo then gets the HTML Form DOM from Dristhi Android Context by calling getForm method. Dristhi Android Context would then return the DOM which is the contents of file at <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/form.xml</li>
+<li>Enketo then calls Ziggy&rsquo;s Form Data Controller to get the form model. Form model will be similar in structue to form_definition, but with the values per-populated. Enketo passes the query params to Ziggy and Ziggy uses these to load the data from Dristhi App SQLite database and returns the form model to Enketo</li>
+<li>Enketo uses XForm Model, HTML Form DOM and form model to render and pre-populate the form</li>
+</ol>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2014
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
