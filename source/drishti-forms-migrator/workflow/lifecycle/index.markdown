@@ -40,6 +40,5 @@ done via the migration script.
    	   the `migration_audit` row.
 
    	3. If in any case the processing of the form fails which might be because of invalid data or unknown form name etc., an another entry is made
-   	   in a table called `error_audit` for each form failures.
-
+   	   in a table called `error_audit` for each form failures.  
    	   This table would contain a user-friendly message and also a detailed message of the actual exception caused. 
