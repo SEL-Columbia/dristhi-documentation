@@ -29,7 +29,10 @@ title: "Table of Contents"
 	* Videos
 		* [Dristhi IEC App][20]
 		* [How to add a new video][21]
-
+* Drishti Forms Migrator
+    * [Overview] [22]
+    * Work-flow
+        * [Life-cycle] [23]
 
 [1]: {{root_url}}/dev_box_setup
 [2]: {{root_url}}/dristhi_app/tech_stack
@@ -51,3 +54,5 @@ title: "Table of Contents"
 [18]: {{root_url}}/dristhi_app/security/sqlcipher_and_encryption
 [20]: {{root_url}}/coming-soon
 [21]: {{root_url}}/coming-soon
+[22]: {{root_url}}/drishti-forms-migrator/overview
+[23]: {{root_url}}/drishti-forms-migrator/workflow/lifecycle
