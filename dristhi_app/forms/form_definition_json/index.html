@@ -46,30 +46,33 @@
     <div class="entry-content"><h1>form_definition.json</h1>
 
 <p>This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. An example form_definition.json is below:
-<code>json
-{
-    "form_data_definition_version": "1",
-    "form": {
-        "bind_type": "entity",
-        "default_bind_path": "/model/instance/form_id/",
-        "fields": [
-            {
-                "name": "field1",
-                "source": "entity.value1",
-                "bind": "/model/instance/form_id/field1",
-                "shouldLoadValue": true,
-                "value": "value1"
-            },
-            {
-                "name": "field2",
-                "source": "entity.value2",
-                "bind": "/model/instance/form_id/field2",
-                "value": "value2"
-            }
-        ]
-    }
+``` json
+{</p>
+
+<pre><code>"form_data_definition_version": "1",
+"form": {
+    "bind_type": "entity",
+    "default_bind_path": "/model/instance/form_id/",
+    "fields": [
+        {
+            "name": "field1",
+            "source": "entity.value1",
+            "bind": "/model/instance/form_id/field1",
+            "shouldLoadValue": true,
+            "value": "value1"
+        },
+        {
+            "name": "field2",
+            "source": "entity.value2",
+            "bind": "/model/instance/form_id/field2",
+            "value": "value2"
+        }
+    ]
 }
-</code>
+</code></pre>
+
+<p>}
+```
 Explanation for the same below:<br/>
 <strong>form_data_definition_version</strong><br/>
 This defines the version of the form definition. Every time the form definition changes, this version must be incremented. This will be useful when handling the form.<br/>

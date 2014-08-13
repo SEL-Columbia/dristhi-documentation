@@ -47,9 +47,9 @@
 
 <ol>
 <li>Find the id of the form that needs to be updated. This can be done by locating the form at <a href="http://formhub.org/drishti_forms/">http://formhub.org/drishti_forms/</a></li>
-<li>Find the name of the form on Dristhi app. This can be done by locating the form at <dristhi_app_root>/dristhi-app/assets/www/form directory</li>
-<li>Run the following command by replacing <form_id> with the actual form_id, <code>curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&amp;form_id=&lt;form_id&gt;" https://enketo.formhub.org/transform/get_html_form</code></li>
-<li>Copy the <em>model</em> node contents to <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/model.xml and the <em>form</em> node contents to <dristhi_app_root>/dristhi-app/assets/www/form/<form_name>/form.xml</li>
+<li>Find the name of the form on Dristhi app. This can be done by locating the form at &lt;dristhi_app_root>/dristhi-app/assets/www/form directory</li>
+<li>Run the following command by replacing &lt;form_id> with the actual form_id, <code>curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&amp;form_id=&lt;form_id&gt;" https://enketo.formhub.org/transform/get_html_form</code></li>
+<li>Copy the <em>model</em> node contents to &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/model.xml and the <em>form</em> node contents to &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/form.xml</li>
 <li>Update the form_definition.json according to the changes made to <em>model</em></li>
 </ol>
 

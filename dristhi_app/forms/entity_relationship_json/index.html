@@ -46,26 +46,29 @@
     <div class="entry-content"><h1>entity_relationship.json</h1>
 
 <p>Another important component of Dristhi forms is entity_relationship.json. There is one entity_relationship.json per application (in this case Dristhi). As the name suggests, it defines the relationship between the various entities of Dristhi app. The entities that are part of the app as of now are <em>eligible_couple, mother and child</em>. Dristhi&rsquo;s entity_relationship.json is below:
-<code>json
-[
-    {
-        "parent": "eligible_couple",
-        "child": "mother",
-        "field": "wife",
-        "kind": "one_to_one",
-        "from": "eligible_couple.id",
-        "to": "mother.ecCaseId"
-    },
-    {
-        "parent": "mother",
-        "child": "child",
-        "field": "children",
-        "kind": "one_to_many",
-        "from": "mother.id",
-        "to": "child.motherCaseId"
-    }
-]
-</code>
+```json
+[</p>
+
+<pre><code>{
+    "parent": "eligible_couple",
+    "child": "mother",
+    "field": "wife",
+    "kind": "one_to_one",
+    "from": "eligible_couple.id",
+    "to": "mother.ecCaseId"
+},
+{
+    "parent": "mother",
+    "child": "child",
+    "field": "children",
+    "kind": "one_to_many",
+    "from": "mother.id",
+    "to": "child.motherCaseId"
+}
+</code></pre>
+
+<p>]
+```
 Each entry in list defines a relation. We have two relationships in Dristhi, one_to_one between eligible_couple and mother and one_to_many between mother and child.
 Explanation for the fields below:<br/>
 <strong>parent</strong><br/>

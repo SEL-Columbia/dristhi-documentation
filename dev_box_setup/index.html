@@ -69,10 +69,10 @@ For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
 <li>Launch Android SDK Manager by using <em>android</em> command. Install the below mentioned components
 
 <ol>
-<li>Tools -> Android SDK Tools</li>
-<li>Tools -> Android SDK Platform Tools</li>
-<li>Android 4.1.2 (API 16) -> SDK Platform</li>
-<li>Android 4.1.2 (API 16) -> ARM EABI v7a System Image</li>
+<li>Tools &ndash;> Android SDK Tools</li>
+<li>Tools &ndash;> Android SDK Platform Tools</li>
+<li>Android 4.1.2 (API 16) &ndash;> SDK Platform</li>
+<li>Android 4.1.2 (API 16) &ndash;> ARM EABI v7a System Image</li>
 </ol>
 </li>
 <li>Create an environment variable ANDROID_HOME pointing to the SDK root path</li>
@@ -187,28 +187,33 @@ For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
 </ol>
 
 
-<pre><code class="xml">&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+<p>```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
- http://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;
- &lt;profiles&gt;
-   &lt;profile&gt;
-     &lt;id&gt;android&lt;/id&gt;
-     &lt;properties&gt;
-       &lt;android.sdk.path&gt;[path_to_android_sdk]&lt;/android.sdk.path&gt;
-       &lt;drishti.updatePolicy&gt;never&lt;/drishti.updatePolicy&gt;
-     &lt;/properties&gt;
-   &lt;/profile&gt;
- &lt;/profiles&gt;
- &lt;activeProfiles&gt;
-   &lt;activeProfile&gt;android&lt;/activeProfile&gt;
- &lt;/activeProfiles&gt;
-&lt;/settings&gt;
+ http://maven.apache.org/xsd/settings-1.0.0.xsd">
+ <profiles>
+   <profile></p>
+
+<pre><code> &lt;id&gt;android&lt;/id&gt;
+ &lt;properties&gt;
+   &lt;android.sdk.path&gt;[path_to_android_sdk]&lt;/android.sdk.path&gt;
+   &lt;drishti.updatePolicy&gt;never&lt;/drishti.updatePolicy&gt;
+ &lt;/properties&gt;
 </code></pre>
 
-<pre><code class="xml">&lt;policyEntry queue="&gt;" producerFlowControl="true" memoryLimit="500mb"&gt;
+<p>   </profile>
+ </profiles>
+ <activeProfiles>
+   <activeProfile>android</activeProfile>
+ </activeProfiles>
+</settings>
+```</p>
+
+<p><code>xml
+&lt;policyEntry queue="&gt;" producerFlowControl="true" memoryLimit="500mb"&gt;
 &lt;/policyEntry&gt;
-</code></pre>
+</code></p>
 <div class="footnotes">
 <hr/>
 <ol>
