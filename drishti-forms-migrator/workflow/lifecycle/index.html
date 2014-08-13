@@ -69,9 +69,8 @@ done via the migration script.</p></li>
 
 <ol>
 <li><p> The form entry that has the max <code>serverVersion</code> is picked. And this value is then persisted in a table called <code>migration_audit</code> against
- the column <code>timestamp</code>.</p>
-
-<p> During the next poll from the batch process, <code>migration_audit</code> table is queried for the entry which has max timestamp value. And
+ the column <code>timestamp</code>.<br/>
+ During the next poll from the batch process, <code>migration_audit</code> table is queried for the entry which has max timestamp value. And
  this value is used for the <code>timestamp</code> value in the query parameter for the http request.</p></li>
 <li><p> The total number of form entries and total number of successfully processed form entries is also persisted along with the timestamp in
  the <code>migration_audit</code> row.</p></li>
