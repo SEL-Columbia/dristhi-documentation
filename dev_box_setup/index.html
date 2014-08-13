@@ -1,0 +1,247 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Dristhi Developer Machine Setup  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Dristhi Developer Machine Setup Note: This document is work in progress, please update this based on your setup experience For Mac OS X 10.9.2 and &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Dristhi Developer Machine Setup</h1>
+
+<p><strong>Note:</strong> This document is work in progress, please update this based on your setup experience</p>
+
+<p>For Mac OS X 10.9.2 and later, make sure that <a href="http://brew.sh/">Homebrew</a> is installed, and use <code>brew install [pkg]</code>. To install a specific version of the [pkg], use <code>brew install [pkg] --version[version]</code><br/>
+For Ubuntu/Debian use <code>sudo apt-get install [pkg]</code><br/>
+For Red Hat/Fedora/CentOS use <code>sudo yum install [pkg]</code></p>
+
+<h2>Tools and Frameworks Setup</h2>
+
+<ol>
+<li>Apache Maven
+
+<ol>
+<li>Install Apache Maven 3.0 using an appropriate package manager with package name <code>homebrew/versions/maven30</code>. We have had issues with newer versions of maven, so it is advisable to install 3.0</li>
+<li>Create/Update settings.xml file<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> at &lt;maven directory&gt; (&lt;user_home_directory&gt;/.m2 on Mac OS X)</li>
+<li>Increase maven permgen size by creating an environment variable called MAVEN_OPTS with value &ldquo;-XX:MaxPermSize=256m -Xmx512m&rdquo;. On Mac OS X this can be done by adding <code>export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx512m"</code> to bash_rc or bash_profile</li>
+</ol>
+</li>
+<li>Android SDK
+
+<ol>
+<li>Download and install <a href="https://developer.android.com/sdk/index.html">Android SDK</a>. Alternatively you can install it using appropriate package manager with package name <code>android-sdk</code></li>
+<li>Launch Android SDK Manager by using <em>android</em> command. Install the below mentioned components
+
+<ol>
+<li>Tools &ndash;> Android SDK Tools</li>
+<li>Tools &ndash;> Android SDK Platform Tools</li>
+<li>Android 4.1.2 (API 16) &ndash;> SDK Platform</li>
+<li>Android 4.1.2 (API 16) &ndash;> ARM EABI v7a System Image</li>
+</ol>
+</li>
+<li>Create an environment variable ANDROID_HOME pointing to the SDK root path</li>
+</ol>
+</li>
+<li>JDK Setup
+
+<ol>
+<li>Install JDK 1.6 and 1.7 from <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle website</a></li>
+<li>Create an environment variable JAVA_HOME which points to home directory of JDK 1.7. On Mac OS X, this may be located at /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home. But we have found the path to vary across machines, so please find the location for your machine and use that</li>
+</ol>
+</li>
+<li>Node modules setup. <strong>Note:</strong> Some of these commands may require sudo permissions.
+
+<ol>
+<li>Install <a href="http://nodejs.org/">NodeJS</a> using an appropriate package manager with package name <code>node</code> and version <code>0.10.17</code></li>
+<li>Install <a href="https://npmjs.org/">npm</a> using an appropriate package manager with package name <code>npm</code> and version <code>1.3.8</code></li>
+<li>Install <a href="http://phantomjs.org/">PhantomJS</a> using an appropriate package manager with package name <code>phantomjs</code> and version <code>1.8.2</code>. <strong>Note:</strong> We have faced issues when running JS tests using Karma and PhantomJS due to conflicting versions of these being installed. The solution is to not have global installations (-g option), but it will require some development effort to get tests running with local installations.</li>
+<li>Install <a href="http://handlebarsjs.com/">Handlebars</a> using  <code>npm install -g handlebars@1.0.12</code></li>
+<li>Install <a href="http://karma-runner.github.io/0.10/index.html">Karma</a> using <code>npm install -g karma@0.10.1</code></li>
+<li>Install <a href="http://gruntjs.com/">Grunt Command Line Tool</a> using <code>npm install grunt-cli@0.1.9</code></li>
+<li>Install <a href="https://github.com/gr2m/CORS-Proxy">CORS Proxy</a> using <code>npm install corsproxy@0.2.14</code></li>
+</ol>
+</li>
+<li>Install <a href="http://activemq.apache.org/">ActiveMQ</a> using an appropriate package manager with package name <code>activemq</code> and version <code>5.7.0</code>
+
+<ol>
+<li>ActiveMQ needs to be started for Dristhi server to build, so follow the instructions at the end of the installation to start it the way you prefer</li>
+<li>ActiveMQ by default has only 1MB memory limit. This is usually not sufficient. Increase ActiveMQ memory by updating ActiveMQ configuration<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>. ActiveMQ configuration can be found at &lt;activemq_install_location&gt;/conf/activemq.xml</li>
+</ol>
+</li>
+<li>Install <a href="http://www.postgresql.org/">PostgreSQL</a> using an appropriate package manager with package name <code>postgresql</code> and version <code>9.2.1</code>
+
+<ol>
+<li>PostgreSQL needs to be started for Dristhi server to build, so follow the instructions at the end of the installation to start it the way you prefer</li>
+<li>Create a user called &lsquo;postgres&rsquo; by using <code>createuser -P postgres</code>. Set the password as &lsquo;password&rsquo;. This is required for building server</li>
+<li>Login to database using <code>psql -U postgres</code>. Create a database called &lsquo;drishti&rsquo; using <code>CREATE DATABASE drishti</code></li>
+</ol>
+</li>
+<li>Install <a href="https://couchdb.apache.org/">CouchDB</a> using an appropriate package manager with package name <code>couchdb</code> and version <code>1.2.0</code></li>
+<li>Install <a href="http://git-scm.com/">Git</a> using an appropriate package manager with package name <code>git</code></li>
+</ol>
+
+
+<h2>Dristhi Server Build</h2>
+
+<ol>
+<li>Clone Dristhi Server git repository from <a href="https://github.com/SEL-Columbia/dristhi">https://github.com/SEL-Columbia/dristhi</a> using <code>git clone https://github.com/SEL-Columbia/dristhi</code></li>
+<li>Run <code>mvn clean install</code> from the root directory of Dristhi Server</li>
+<li>To run server locally run
+
+<ol>
+<li>Run <code>mvn clean install</code> from the root directory of Dristhi Server</li>
+<li>Navigate to &lt;server_root&gt;/drishti-reporting directory and run <code>mvn jetty:run</code></li>
+<li>Navigate to &lt;server_root&gt;/drishti-web directory and run <code>mvn jetty:run</code></li>
+<li>This can be simplified by creating an alias, <code>alias web='(cd &lt;server_root&gt;; cd drishti-reporting &amp;&amp; mvn jetty:run &amp;; cd ../drishti-web &amp;&amp; mvn jetty:run)'</code></li>
+</ol>
+</li>
+</ol>
+
+
+<h2>Dristhi App Build</h2>
+
+<p><strong>Note:</strong> Dristhi App build depends on Server build, so please complete that before building app</p>
+
+<ol>
+<li>Clone Dristhi app git repository from <a href="https://github.com/SEL-Columbia/drishti-app">https://github.com/SEL-Columbia/drishti-app</a> using <code>git clone https://github.com/SEL-Columbia/drishti-app</code></li>
+<li>Android Emulator
+
+<ol>
+<li><strong>Default Emulator:</strong> Create, for the first time, and start an Android Virtual Device by using <code>android avd</code> with API level 16 and screen resolution 1024 X 600</li>
+<li><strong>Genymotion</strong>: Alternatively, you can also install <a href="http://www.genymotion.com/">Genymotion</a> Android Emulator which is much faster than the default Android emulator.
+
+<ol>
+<li>Install <a href="http://www.genymotion.com/">Genymotion</a> emulator</li>
+<li>Install <a href="https://duckduckgo.com/?q=virtualbox">Virtual Box</a></li>
+<li>Follow <a href="http://forum.xda-developers.com/showthread.php?t=2528952">ARM Translation</a> instructions to get Dristhi app working on Genymotion</li>
+<li>Start Genymotion emulator and create a Virtual device with API level 16 and screen resolution 1024 X 600</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Run <code>mvn clean install</code> from the root directory of Dristhi app</li>
+</ol>
+
+
+<h2>Dristhi Dashboard Build</h2>
+
+<ol>
+<li>Clone Dristhi Dashboard git repository from <a href="https://github.com/SEL-Columbia/drishti-site">https://github.com/SEL-Columbia/drishti-site</a> using <code>git clone https://github.com/SEL-Columbia/drishti-site</code></li>
+<li>Run <code>npm install</code></li>
+<li>Run <code>bower install</code></li>
+<li>Run <code>grunt</code>. This will build the code (jshint verification, unit tests, concatenation, minification, etc) and generate runnable web app in <code>dist</code> directory</li>
+<li>To run dashboard locally
+
+<ol>
+<li>Run Dristhi Server locally by following the steps mentioned above</li>
+<li>In &lt;dashboard_root&gt;/app/scripts/app.js comment the section of constants that have prod URLs (<a href="https://smartregistries.org">https://smartregistries.org</a>) and uncomment the section which has local URLs (<a href="http://localhost:9292/localhost:9980">http://localhost:9292/localhost:9980</a>)</li>
+<li>Run <code>corsproxy</code></li>
+<li>Run <code>grunt server</code> from &lt;dashboard_root&gt;</li>
+</ol>
+</li>
+</ol>
+
+
+<h2>Troubleshooting</h2>
+
+<ol>
+<li><code>The Genymotion virtual device could not obtain an IP address.</code>
+  Make sure that a host only network is configured on your virtual box with DHCP server enabled. To ensure this, go to the virtual box&rsquo;s preferences.
+  On the network tab, go to the &lsquo;Host-only networks&rsquo; tab and create a host only network if it does not exist. If it does, edit this network and go to the DHCP Server tab and check the &ldquo;Enable server&rdquo; checkbox. Provide all the necessary fields here. Now restart the genymotion virtual device.</li>
+</ol>
+
+
+<p>```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+ http://maven.apache.org/xsd/settings-1.0.0.xsd">
+ <profiles>
+   <profile></p>
+
+<pre><code> &lt;id&gt;android&lt;/id&gt;
+ &lt;properties&gt;
+   &lt;android.sdk.path&gt;[path_to_android_sdk]&lt;/android.sdk.path&gt;
+   &lt;drishti.updatePolicy&gt;never&lt;/drishti.updatePolicy&gt;
+ &lt;/properties&gt;
+</code></pre>
+
+<p>   </profile>
+ </profiles>
+ <activeProfiles>
+   <activeProfile>android</activeProfile>
+ </activeProfiles>
+</settings>
+```</p>
+
+<p><code>xml
+&lt;policyEntry queue="&gt;" producerFlowControl="true" memoryLimit="500mb"&gt;
+&lt;/policyEntry&gt;
+</code></p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+<li id="fn:2">
+<p><a href="#fnref:2" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2014
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>How to add new forms to Dristhi App  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="How to add new forms to Dristhi App Forms are authored according to XLSForm standard (using Microsoft Excel)
+These forms are then uploaded to http:// &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>How to add new forms to Dristhi App</h1>
+
+<ol>
+<li>Forms are authored according to XLSForm standard (using Microsoft Excel)</li>
+<li>These forms are then uploaded to <a href="http://formhub.org/">http://formhub.org/</a> which converts them into XForm standard. All Dristhi forms can be found at <a href="http://formhub.org/drishti_forms/">http://formhub.org/drishti_forms/</a> (this requires login)</li>
+<li>XForm is then converted to Enketo HTML form by running the following command with the &lt;form_id> replaced with the actual value, <code>curl -X POST -ssl3 -d "server_url=https://formhub.org/drishti_forms&amp;form_id=&lt;form_id&gt;" https://enketo.formhub.org/transform/get_html_form</code>.</li>
+<li>This generates a xml document which contains two nodes, <em>model</em> and <em>form</em>, rest of the nodes can be ignored. <em>model</em> is the XForm Model instance, this is used by Enketo to do all the validations and calculations in the forms. <em>form</em> is the HTML DOM which Enketo uses to render the form</li>
+<li><em>model</em> and <em>form</em> are saved as <em>model.xml</em> and <em>form.xml</em>. These files are then copied to the location &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/model.xml and &lt;dristhi_app_root>/dristhi-app/assets/www/form/&lt;form_name>/form.xml. When a form is launched, form_name is passed in the query parameter. Using this Enketo renders the form</li>
+<li>Another important part of form is form_definition.json file. This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. More about form_definition.json later</li>
+<li>So <em>model.xml</em>, <em>form.xml</em> and <em>form_definition.json</em> comprise a Enketo Form</li>
+</ol>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2014
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

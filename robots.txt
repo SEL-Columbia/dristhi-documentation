@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://SEL-Columbia.github.io/dristhi-documentation/sitemap.xml 

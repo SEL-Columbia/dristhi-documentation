@@ -1,0 +1,81 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Injecting values in forms while loading  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Injecting values to the form fields when the form loads In certain cases of Dristhi App, we need the form to be loaded with few of the options pre- &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Injecting values to the form fields when the form loads</h1>
+
+<p>In certain cases of Dristhi App, we need the form to be loaded with few of the options pre-selected while the form opens. A child immunization form is a very good example of this. When the user taps on a particular immunization button, the child immunization form should open with the corresponding option button for that immunization pre-selected while the form opens.</p>
+
+<p>This can be achieved by opening the form with the field overrides.</p>
+
+<p>A form can be opened without any of the form overrides as below:
+<code>
+openForm('form_name', client.entity_id)
+</code>
+But the same form can be opened with the overrides as below:
+<code>
+openFormWithFormOverrides('form_name', client.entity_id, '{"field_name_1":"value1", "field_name_2":"value2"}')
+</code>
+This would pre-populate &ldquo;value1&rdquo; and &ldquo;value2&rdquo; on fields &ldquo;field_name_1&rdquo; and &ldquo;field_name_2&rdquo; respectively.</p>
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2014
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
