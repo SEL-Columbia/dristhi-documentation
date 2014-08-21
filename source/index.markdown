@@ -33,6 +33,7 @@ title: "Table of Contents"
     * [Overview] [22]
     * Work-flow
         * [Life-cycle] [23]
+        * [Util] [24]
 
 [1]: {{root_url}}/dev_box_setup
 [2]: {{root_url}}/dristhi_app/tech_stack
@@ -56,3 +57,4 @@ title: "Table of Contents"
 [21]: {{root_url}}/coming-soon
 [22]: {{root_url}}/drishti-forms-migrator/overview
 [23]: {{root_url}}/drishti-forms-migrator/workflow/lifecycle
+[24]: {{root_url}}/drishti-forms-migrator/workflow/util
