@@ -1,0 +1,136 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>form_definition.json  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="form_definition.json This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. An example &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>form_definition.json</h1>
+
+<p>This is a mapping file that is written for every form which maps the fields within the form to Dristhi database. An example form_definition.json is below:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;form_data_definition_version&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;form&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;bind_type&quot;</span><span class="p">:</span> <span class="s2">&quot;entity&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;default_bind_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/model/instance/form_id/&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;field1&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;entity.value1&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;bind&quot;</span><span class="p">:</span> <span class="s2">&quot;/model/instance/form_id/field1&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;shouldLoadValue&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span>
+</span><span class='line'>            <span class="p">},</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;field2&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;entity.value2&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;bind&quot;</span><span class="p">:</span> <span class="s2">&quot;/model/instance/form_id/field2&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">]</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explanation for the same below:<br/>
+<strong>form_data_definition_version</strong><br/>
+This defines the version of the form definition. Every time the form definition changes, this version must be incremented. This will be useful when handling the form.<br/>
+<strong>bind_type</strong><br/>
+This defines the entity for which the form is being filled. As of now, the possible values for this are <em>eligible_couple, mother or child</em>.<br/>
+<strong>default_bind_path</strong><br/>
+This is the default value for bind path in case it is not specified in the field.<br/>
+<strong>fields</strong><br/>
+This has all the fields that we have to map between Dristht DB and Forms.<br/>
+<strong>name</strong><br/>
+This is the name of the field.<br/>
+<strong>source</strong><br/>
+This specifies the mapping path for a field in Dristhi DB. For example, if the value for this is entity.value1 then the field value is loaded from or saved onto value1 field of entity when the entity is saved or updated. If no value is specified for this, the value is inferred as [bind_type].[name]<br/>
+<strong>bind</strong><br/>
+This specifies the mapping path for a field in model.xml (Enketo form field). For example, if the value for this is /model/instance/form_id/field1 then control that corresponds to this XPath will be pre-populated with the corresponding value. If no value is specified for this, the value is inferred as [default_bind_path]/[name]<br/>
+<strong>shouldLoadValue</strong><br/>
+This field tells Ziggy that the field should be pre-populated with the corresponding value.<br/>
+<strong>value</strong><br/>
+This is the value for the field. When the form opens if <em>value</em> is specified then Enketo pre-populated the field with the specified on the form.</p>
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2014
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
