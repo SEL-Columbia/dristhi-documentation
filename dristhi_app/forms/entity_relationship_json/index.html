@@ -1,0 +1,121 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>entity_relationship.json  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="entity_relationship.json Another important component of Dristhi forms is entity_relationship.json. There is one entity_relationship.json per &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>entity_relationship.json</h1>
+
+<p>Another important component of Dristhi forms is entity_relationship.json. There is one entity_relationship.json per application (in this case Dristhi). As the name suggests, it defines the relationship between the various entities of Dristhi app. The entities that are part of the app as of now are <em>eligible_couple, mother and child</em>. Dristhi&rsquo;s entity_relationship.json is below:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;parent&quot;</span><span class="p">:</span> <span class="s2">&quot;eligible_couple&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;child&quot;</span><span class="p">:</span> <span class="s2">&quot;mother&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;wife&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;one_to_one&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;eligible_couple.id&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;mother.ecCaseId&quot;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;parent&quot;</span><span class="p">:</span> <span class="s2">&quot;mother&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;child&quot;</span><span class="p">:</span> <span class="s2">&quot;child&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;children&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;one_to_many&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;mother.id&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;child.motherCaseId&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Each entry in list defines a relation. We have two relationships in Dristhi, one_to_one between eligible_couple and mother and one_to_many between mother and child.
+Explanation for the fields below:<br/>
+<strong>parent</strong><br/>
+This specifies the parent entity in the given relation.<br/>
+<strong>child</strong><br/>
+This specifies the child entity in the given relation.<br/>
+<strong>field</strong><br/>
+This specifies the field on parent entity which allows us to load child entity for that parent. This was added to support the cases where entities are stored on Document based Databases like CouchDB. This is currently not used or implemented in the app.<br/>
+<strong>kind</strong><br/>
+This specifies the type of relationship. Currently supported valyes are <em>one_to_one</em> and <em>one_to_many</em>.<br/>
+<strong>from</strong> and <strong>to</strong><br/>
+Together these two values specify how to load parent and child entities from a relational database.</p>
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2015
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

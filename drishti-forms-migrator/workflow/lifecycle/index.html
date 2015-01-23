@@ -1,0 +1,105 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Drishti Forms Migrator  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Dristhi Forms Migrator: Life-cycle Even before the application is deployed and started, we need to make sure that the postgres server is up and &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Dristhi Forms Migrator: Life-cycle</h1>
+
+<ul>
+<li><p>Even before the application is deployed and started, we need to make sure that the postgres server is up and running.</p></li>
+<li><p>The postgres should have at-least one database created with the username and password.</p></li>
+<li><p>This information: the database name, username and password has to be provided to the application. This can be done by
+entering them in the application&rsquo;s config file which in this case is a <code>.yml</code> file.</p></li>
+<li><p>We should run the database migration for the application. All the tables are created/modified are part of this migration
+and should be created prior the application launch. Hence any new forms or new columns or deletion of the columns should be
+done via the migration script.</p></li>
+<li><p>Once the application is started the batch job is also started.</p></li>
+<li><p>The batch job first tries to make a http request to the Drishti Application</p>
+
+<p>  Example:  <br/>
+  <code>http://host/all-form-submissions?timestamp=0&amp;batch-size=100</code></p>
+
+<ul>
+<li><code>timestamp</code> : The server would return all the form entries which have the server version value greater than this.</li>
+<li><code>batch-size</code> : The server would return as many forms as mentioned here. Usually its 100.</li>
+</ul>
+</li>
+<li><p>When it fetches, say, 100 form entries, it processes them and saves it to the repository.</p></li>
+<li><p>Once all the form entries are processed and saved to the repository. There are few other tasks:</p>
+
+<ol>
+<li><p> The form entry that has the max <code>serverVersion</code> is picked. And this value is then persisted in a table called <code>migration_audit</code> against
+ the column <code>timestamp</code>.</p>
+
+<p> During the next poll from the batch process, <code>migration_audit</code> table is queried for the entry which has max timestamp value. And
+ this value is used for the <code>timestamp</code> value in the query parameter for the http request.</p></li>
+<li><p> The total number of form entries and total number of successfully processed form entries is also persisted along with the timestamp in
+ the <code>migration_audit</code> row.</p></li>
+<li><p> If in any case the processing of the form fails which might be because of invalid data or unknown form name etc., an another entry is made
+ in a table called <code>error_audit</code> for each form failures.<br/>
+ This table would contain a user-friendly message and also a detailed message of the actual exception caused.</p></li>
+</ol>
+</li>
+</ul>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2015
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

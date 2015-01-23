@@ -1,0 +1,108 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Smart Register Architecture (Native)  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Smart Register Architecture (Native) The EC Register is built using Android Native model. Eventually all the registers can be moved from the hybrid &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Smart Register Architecture (Native)</h1>
+
+<p>The EC Register is built using Android Native model. Eventually all the registers can be moved from the hybrid model to the native screens to provide better performance. A native register can be built with architecture as below. The architecture below is written with EC Register as example because as of now that is the only register that is in native model. But this can be extended to other existing and new registers</p>
+
+<p>Sound knowledge of below mentioned tools and techniques are necessary to understand how these registers are developed:</p>
+
+<ul>
+<li><a href="http://developer.android.com">Android Native Code</a></li>
+</ul>
+
+
+<p>The architecture of the Native Register can be described as below:</p>
+
+<ul>
+<li>Register Activity is implemeted as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/src/main/java/org/ei/drishti/view/activity/NativeECSmartRegisterActivity.java">NativeECSmartRegisterActivity</a> class. This is the Android activity that extends from <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/src/main/java/org/ei/drishti/view/activity/SecuredNativeSmartRegisterActivity.java">SecuredNativeSmartRegisterActivity</a></li>
+<li>The various layouts required for the register to be displayed is defined in <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/res/layout/smart_register_client_gplsa_layout.xml">res/layouts directory</a> as xml files</li>
+<li>The class SecuredNativeSmartRegisterActivity has interfaces defined for the following
+
+<ul>
+<li>The various service modes for the register</li>
+<li>The various filters that can be applied on the register</li>
+<li>The sort options</li>
+<li>The weights for the columns</li>
+</ul>
+</li>
+<li>The total weight of the register is defined in the layout xml and the list of weights that is define how much width each column should take on the screen. For example if the weight of the whole register is mentioned to be 100, and the list of weights are defined as 50, 15, 10, 5 and 20, this means that the screen has 5 columns and the width of the columns are 50%, 15%, 10% 5% and 20% respectively</li>
+<li>The Activity, on initialization, instantiates the corresponding SmartRegistriesController (which is ECSmartRegistriesController in case of EC Register) and the VillageController</li>
+<li>The list of service options are overridden on the getEditOption method where the menu item name, the corresponding form to open are returned</li>
+</ul>
+
+
+<p>The following are the sequence of events that happens when a native register is open:</p>
+
+<ol>
+<li>When a native smart register is opened, the corresponding Register Activity is started (NativeECSmartRegisterActivity in case of EC Register)</li>
+<li>The activity instantiates the Smart Register Controller</li>
+<li>The UI is loaded from the layout.xml file</li>
+<li>Register Controller loads the client list by calling the getClients method of SmartRegistriesClientProvider</li>
+<li>Register controller pre-processes the client list before rendering it. Pre-process step includes converting date fields to DD/MM/YYYY format; title casing text fields like Wife Name, Village, etc; parsing reminders and service provided information, etc</li>
+<li>Then the data is bound to the UI elements</li>
+</ol>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2015
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

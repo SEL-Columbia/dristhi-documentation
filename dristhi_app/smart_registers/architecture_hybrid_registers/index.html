@@ -1,0 +1,110 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Smart Register Architecture (Hybrid)  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Smart Register Architecture (Hybrid) FP, ANC, PNC and Child Register are built using Android Hybrid model and hence all of them have the same &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Smart Register Architecture (Hybrid)</h1>
+
+<p>FP, ANC, PNC and Child Register are built using Android Hybrid model and hence all of them have the same architecture as below. The architecture below is written with ANC Register as example, but the same applies to the other hybrid registers too.</p>
+
+<p>Sound knowledge of below mentioned tools and techniques are necessary to understand how these registers are developed:</p>
+
+<ul>
+<li><a href="https://angularjs.org/">AngularJS</a></li>
+<li><a href="https://developer.android.com/guide/webapps/webview.html#UsingJavaScript">Android Javascript Interface API</a></li>
+<li><a href="http://sqlcipher.net/sqlcipher-for-android/">SQLCipher for Android</a> and <a href="https://sqlite.org/">SQLite Database</a></li>
+</ul>
+
+
+<p><img src="/dristhi-documentation/images/custom/dristhi_app/smart_register_hybrid.png" title="Smart Register (Hybrid) Sequence Diagram" alt="" />
+<a href="/dristhi-documentation/images/custom/dristhi_app/smart_register_hybrid.png">Sequence Diagram for Smart Register (Hybrid)</a></p>
+
+<p>The above mentioned components can be found in code as below:</p>
+
+<ul>
+<li>Register Activity is implemeted as ANCSmartRegisterActivity class. This is an Android Activity which has a webView control</li>
+<li>Register HTML is implemeted as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/www/smart_registry/anc_register.html">anc_register.html</a>. This is implemented as an AngularJS application</li>
+<li>Register Controller is implemented as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/anc_register_app.js">anc_register_app.js</a>. Additionally all the common functionality across the registers, like search, sort, etc, are implemented in a common controller called <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/list_view_controller.js">list_view_controller</a>. list_view_controller is included in all the smart registers</li>
+<li>Android Context is implemented as ANCSmartRegisterController. When Register Activity loads the html into webView, it injects this Java object as a Javscript object using Android Javascript Interface API. Register HTML then uses this object to load the data from the local SQLite database</li>
+<li>Register Service is implemented as <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/assets/js/smart_registry/anc_service.js">anc_service.js</a></li>
+</ul>
+
+
+<p>More information about the sequence diagram messages below:</p>
+
+<ol>
+<li>When a smart register is opened Register Activity is started</li>
+<li>Register Actvity uses webView to load Register HTML</li>
+<li>This initialises AngularJS application and controllers (Register Controller and list view controller)</li>
+<li>Register Controller loads the client list
+
+<ol>
+<li>It calls Get Clients on Android Context</li>
+<li>Android Context loads the data from SQLite Database and returns the data in JSON format. This JSON is cached using <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/src/main/java/org/ei/drishti/util/Cache.java">Cache</a> object to reduce the load time of the register</li>
+</ol>
+</li>
+<li>Register controller pre-processes the client list before rendering it. Pre-process step includes converting date fields to DD/MM/YYYY format; title casing text fields like Wife Name, Village, etc; parsing reminders and service provided information, etc</li>
+<li>Register HTML then renders the client list</li>
+</ol>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2015
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>Drishti Forms Migrator  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Dristhi Forms Migrator: Util We need to have the java classes created for every form entry types. And also the corresponding
+table created in &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Dristhi Forms Migrator: Util</h1>
+
+<ul>
+<li><p>We need to have the java classes created for every form entry types. And also the corresponding
+table created in postgres through the migration script.</p></li>
+<li><p>There is a ruby utility that will generate the java class and the corresponding migration script for a given sample form data.</p></li>
+<li><p>This utility can be run when there is any new forms that needs to be added.</p></li>
+<li><p>The sample json file that contains the form sample is place under <code>util/samples</code> directory</p></li>
+<li><p>Once the sample json is placed, you can run</p></li>
+</ul>
+
+
+<p><code>$ruby generator.rb</code></p>
+
+<ul>
+<li>This will create java class file into <code>util/generated/classes</code> folder and migration script into <code>util/generated/migrations</code> folder</li>
+</ul>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2015
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

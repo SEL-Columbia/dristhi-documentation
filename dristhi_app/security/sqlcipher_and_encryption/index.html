@@ -1,0 +1,85 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>SQLCipher and Encryption  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="SQLCipher and Encryption The data that is stored in the app contains the medical and personal information of the clients, so it is necessary to &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>SQLCipher and Encryption</h1>
+
+<p>The data that is stored in the app contains the medical and personal information of the clients, so it is necessary to encrypt and store the data in the local storage/database. <a href="http://sqlcipher.net">SQLCipher</a> is an open source SQLite extension that provides 256 bit AES encryption of database files. It has a small foot print therefore does not impact the performance.</p>
+
+<p>In Dristhi app, SQLCipher is used to encrypt the local database with a specific password which is usually the password of the ANM who logs into the app.</p>
+
+<p>The following are the sequence that happens when the ANM logs in:</p>
+
+<ul>
+<li>When the ANM logs in, the password of the ANM is used as the key to encrypt the database</li>
+<li>The password of the ANM shall be stored in the session</li>
+<li>After the ANM logins, any of the actions that the ANM does, boils down to the corresponding repository classes</li>
+<li>These repository classes call the
+<a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/src/main/java/org/ei/drishti/repository/Repository.java">Repository</a> classes to get the [readable] database</li>
+<li>When the readable or writable database is requested, the repository class tries to decrypt the database with the ANM password from the Session and then returns the readable/writable <a href="https://github.com/SEL-Columbia/dristhi-app/blob/master/dristhi-app/src/main/java/org/ei/drishti/repository/Repository.java#L42-54">database</a></li>
+<li>This corresponding database is used to do all the read and write operations</li>
+<li>The database is cleared when all the Dristhi application data is cleared through the Settings application</li>
+</ul>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2015
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<title>reminders and schedules  | Project Dristhi</title>
+
+	<meta name="author" content="Project Dristhi">
+
+<meta name="description" content="Reminders and Schedules Reminders and Schedules are generated for various services for ANC and Child services. For example, when a new mother is &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="" rel="alternate" title="Project Dristhi" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/dristhi-documentation/favicon.png" rel="shortcut icon">
+	<link href="/dristhi-documentation/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/dristhi-documentation/">Project Dristhi</a></h1>
+<span class="tagline">Documentation for Project Dristhi</span>
+<nav id="main-nav"><ul>
+
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+
+</ul>
+</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="page">
+    <div class="entry-content"><h1>Reminders and Schedules</h1>
+
+<p>Reminders and Schedules are generated for various services for ANC and Child services. For example, when a new mother is
+registered, the mother is enrolled for the ANC Visits, Hb Tests and TT doses. Similarly, when a new child is registered,
+the child is enrolled for various immunizations like BCG, OPV etc.</p>
+
+<p>Some of these reminders are dependent on each other. For example, when the mother does her first ANC Visit, the ANC
+visit 1 is fulfilled and then the mother is enrolled for the second ANC visit.</p>
+
+<p>The workflow of the reminders happens as follows. For reminders, let us take ANC Registration as an example:</p>
+
+<ul>
+<li>An ANC Registration form is filled and saved</li>
+<li>The ziggy on the app creates the corresponding mother entity</li>
+<li>The form gets submitted to the server</li>
+<li>The server processes the form and creates the corresponding mother entity on the CouchDB</li>
+<li>The server then enrols this mother to the list of services like (ANC Visit1, Hb/Test, TT dose)</li>
+<li>The reminders are generated at a stipulated time at the server (4 pm. in case of Dristhi)</li>
+<li>These reminders are pushed to the app the next time the app syncs with the server</li>
+<li>These reminders get displayed in the app with a particular colour which corresponds to how soon is the reminder due</li>
+</ul>
+
+
+<p>The reminders are colour coded as follows:</p>
+
+<ul>
+<li>Light Blue &ndash; The reminder is in the early window, which means that it is due but not anytime soon</li>
+<li>Dark Blue &ndash; The reminder is in the due window, the due date of the reminder/service is close</li>
+<li>Red &ndash; The reminder is in the late window, the due date for the reminder/service is already past</li>
+</ul>
+
+</div>
+</article>
+
+
+</div>
+	<footer id="footer" class="inner">&copy; 2015
+
+   <a href='#'>Project Dristhi</a>
+
+</footer>
+	<script src="/dristhi-documentation/javascripts/slash.js"></script>
+<script src="/dristhi-documentation/javascripts/hyphenator.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
